@@ -1,26 +1,225 @@
-name: github pages
+name: Deploy StrictDoc Documentation
 
 on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          mdbook-version: '0.3.7'
-          # mdbook-version: 'latest'
+          python-version: '3.12'
 
-      - run: mdbook build
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install strictdoc beautifulsoup4 html2text
 
-      - name: Deploy
+      - name: Generate HTML from StrictDoc files
+        run: |
+          # Generate HTML from Markdown-based StrictDoc files
+          strictdoc export --formats=html --output-dir=docs/strictdoc_md strictdoc_md/
+          
+          # Generate HTML from HTML-based StrictDoc files  
+          strictdoc export --formats=html --output-dir=docs/strictdoc_html strictdoc_html/
+          
+          # Copy original HTML files
+          mkdir -p docs/original_html
+          cp html/*.html docs/original_html/
+          
+          # Create index page
+          cat > docs/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>MIL-STD-498 Documentation</title>
+              <style>
+                  body { font-family: Arial, sans-serif; margin: 40px; }
+                  h1 { color: #333; }
+                  h2 { color: #666; margin-top: 30px; }
+                  .section { margin: 20px 0; }
+                  .doc-list { list-style: none; padding: 0; }
+                  .doc-list li { margin: 10px 0; }
+                  .doc-list a { color: #0066cc; text-decoration: none; }
+                  .doc-list a:hover { text-decoration: underline; }
+                  .description { color: #666; font-size: 0.9em; margin-left: 20px; }
+              </style>
+          </head>
+          <body>
+              <h1>MIL-STD-498 Documentation</h1>
+              <p>This repository contains MIL-STD-498 (Military Standard 498) document templates in multiple formats.</p>
+              
+              <div class="section">
+                  <h2>StrictDoc Generated Documentation (from Markdown)</h2>
+                  <ul class="doc-list">
+                      <li><a href="strictdoc_md/html/SRS.html.md.html">SRS - Software Requirements Specification</a>
+                          <div class="description">Defines software requirements and acceptance criteria</div></li>
+                      <li><a href="strictdoc_md/html/SDD.html.md.html">SDD - Software Design Description</a>
+                          <div class="description">Software architectural and detailed design</div></li>
+                      <li><a href="strictdoc_md/html/SDP.html.md.html">SDP - Software Development Plan</a>
+                          <div class="description">Comprehensive software development planning</div></li>
+                      <li><a href="strictdoc_md/html/SSS.html.md.html">SSS - System/Subsystem Specification</a>
+                          <div class="description">System-level requirements and specifications</div></li>
+                      <li><a href="strictdoc_md/html/STP.html.md.html">STP - Software Test Plan</a>
+                          <div class="description">Software testing strategy and procedures</div></li>
+                      <li><a href="strictdoc_md/html/STR.html.md.html">STR - Software Test Report</a>
+                          <div class="description">Test execution results and reports</div></li>
+                      <li><a href="strictdoc_md/html/SIP.html.md.html">SIP - Software Installation Plan</a>
+                          <div class="description">Software installation procedures</div></li>
+                      <li><a href="strictdoc_md/html/STRP.html.md.html">STRP - Software Transition Plan</a>
+                          <div class="description">Software transition planning</div></li>
+                      <li><a href="strictdoc_md/html/COM.html.md.html">COM - Computer Operator Manual</a>
+                          <div class="description">Computer system operation manual</div></li>
+                      <li><a href="strictdoc_md/html/CPM.html.md.html">CPM - Computer Program Manual</a>
+                          <div class="description">Computer program usage manual</div></li>
+                      <li><a href="strictdoc_md/html/DBDD.html.md.html">DBDD - Database Design Description</a>
+                          <div class="description">Database design and structure</div></li>
+                      <li><a href="strictdoc_md/html/FSM.html.md.html">FSM - Firmware Support Manual</a>
+                          <div class="description">Firmware support procedures</div></li>
+                      <li><a href="strictdoc_md/html/IDD.html.md.html">IDD - Interface Design Description</a>
+                          <div class="description">Interface design specifications</div></li>
+                      <li><a href="strictdoc_md/html/IRS.html.md.html">IRS - Interface Requirements Specification</a>
+                          <div class="description">Interface requirements between system components</div></li>
+                      <li><a href="strictdoc_md/html/OCD.html.md.html">OCD - Operational Concept Description</a>
+                          <div class="description">Operational concept descriptions</div></li>
+                      <li><a href="strictdoc_md/html/SCOM.html.md.html">SCOM - Software Configuration Management Plan</a>
+                          <div class="description">Configuration management planning</div></li>
+                      <li><a href="strictdoc_md/html/SIOM.html.md.html">SIOM - Software Input/Output Manual</a>
+                          <div class="description">Input/output procedures manual</div></li>
+                      <li><a href="strictdoc_md/html/SPS.html.md.html">SPS - Software Product Specification</a>
+                          <div class="description">Software product specifications</div></li>
+                      <li><a href="strictdoc_md/html/SSDD.html.md.html">SSDD - System/Subsystem Design Description</a>
+                          <div class="description">System-level design descriptions</div></li>
+                      <li><a href="strictdoc_md/html/STD.html.md.html">STD - Software Transition Document</a>
+                          <div class="description">Software transition documentation</div></li>
+                      <li><a href="strictdoc_md/html/SUM.html.md.html">SUM - Software User Manual</a>
+                          <div class="description">Software user manual</div></li>
+                      <li><a href="strictdoc_md/html/SVD.html.md.html">SVD - Software Version Description</a>
+                          <div class="description">Version description and release notes</div></li>
+                  </ul>
+              </div>
+              
+              <div class="section">
+                  <h2>StrictDoc Generated Documentation (from HTML)</h2>
+                  <ul class="doc-list">
+                      <li><a href="strictdoc_html/html/SRS.html.html">SRS - Software Requirements Specification</a>
+                          <div class="description">Defines software requirements and acceptance criteria</div></li>
+                      <li><a href="strictdoc_html/html/SDD.html.html">SDD - Software Design Description</a>
+                          <div class="description">Software architectural and detailed design</div></li>
+                      <li><a href="strictdoc_html/html/SDP.html.html">SDP - Software Development Plan</a>
+                          <div class="description">Comprehensive software development planning</div></li>
+                      <li><a href="strictdoc_html/html/SSS.html.html">SSS - System/Subsystem Specification</a>
+                          <div class="description">System-level requirements and specifications</div></li>
+                      <li><a href="strictdoc_html/html/STP.html.html">STP - Software Test Plan</a>
+                          <div class="description">Software testing strategy and procedures</div></li>
+                      <li><a href="strictdoc_html/html/STR.html.html">STR - Software Test Report</a>
+                          <div class="description">Test execution results and reports</div></li>
+                      <li><a href="strictdoc_html/html/SIP.html.html">SIP - Software Installation Plan</a>
+                          <div class="description">Software installation procedures</div></li>
+                      <li><a href="strictdoc_html/html/STRP.html.html">STRP - Software Transition Plan</a>
+                          <div class="description">Software transition planning</div></li>
+                      <li><a href="strictdoc_html/html/COM.html.html">COM - Computer Operator Manual</a>
+                          <div class="description">Computer system operation manual</div></li>
+                      <li><a href="strictdoc_html/html/CPM.html.html">CPM - Computer Program Manual</a>
+                          <div class="description">Computer program usage manual</div></li>
+                      <li><a href="strictdoc_html/html/DBDD.html.html">DBDD - Database Design Description</a>
+                          <div class="description">Database design and structure</div></li>
+                      <li><a href="strictdoc_html/html/FSM.html.html">FSM - Firmware Support Manual</a>
+                          <div class="description">Firmware support procedures</div></li>
+                      <li><a href="strictdoc_html/html/IDD.html.html">IDD - Interface Design Description</a>
+                          <div class="description">Interface design specifications</div></li>
+                      <li><a href="strictdoc_html/html/IRS.html.html">IRS - Interface Requirements Specification</a>
+                          <div class="description">Interface requirements between system components</div></li>
+                      <li><a href="strictdoc_html/html/OCD.html.html">OCD - Operational Concept Description</a>
+                          <div class="description">Operational concept descriptions</div></li>
+                      <li><a href="strictdoc_html/html/SCOM.html.html">SCOM - Software Configuration Management Plan</a>
+                          <div class="description">Configuration management planning</div></li>
+                      <li><a href="strictdoc_html/html/SIOM.html.html">SIOM - Software Input/Output Manual</a>
+                          <div class="description">Input/output procedures manual</div></li>
+                      <li><a href="strictdoc_html/html/SPS.html.html">SPS - Software Product Specification</a>
+                          <div class="description">Software product specifications</div></li>
+                      <li><a href="strictdoc_html/html/SSDD.html.html">SSDD - System/Subsystem Design Description</a>
+                          <div class="description">System-level design descriptions</div></li>
+                      <li><a href="strictdoc_html/html/STD.html.html">STD - Software Transition Document</a>
+                          <div class="description">Software transition documentation</div></li>
+                      <li><a href="strictdoc_html/html/SUM.html.html">SUM - Software User Manual</a>
+                          <div class="description">Software user manual</div></li>
+                      <li><a href="strictdoc_html/html/SVD.html.html">SVD - Software Version Description</a>
+                          <div class="description">Version description and release notes</div></li>
+                  </ul>
+              </div>
+              
+              <div class="section">
+                  <h2>Original HTML Templates</h2>
+                  <ul class="doc-list">
+                      <li><a href="original_html/SRS.html">SRS - Software Requirements Specification</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SDD.html">SDD - Software Design Description</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SDP.html">SDP - Software Development Plan</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SSS.html">SSS - System/Subsystem Specification</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/STP.html">STP - Software Test Plan</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/STR.html">STR - Software Test Report</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SIP.html">SIP - Software Installation Plan</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/STRP.html">STRP - Software Transition Plan</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/COM.html">COM - Computer Operator Manual</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/CPM.html">CPM - Computer Program Manual</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/DBDD.html">DBDD - Database Design Description</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/FSM.html">FSM - Firmware Support Manual</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/IDD.html">IDD - Interface Design Description</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/IRS.html">IRS - Interface Requirements Specification</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/OCD.html">OCD - Operational Concept Description</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SCOM.html">SCOM - Software Configuration Management Plan</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SIOM.html">SIOM - Software Input/Output Manual</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SPS.html">SPS - Software Product Specification</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SSDD.html">SSDD - System/Subsystem Design Description</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/STD.html">STD - Software Transition Document</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SUM.html">SUM - Software User Manual</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                      <li><a href="original_html/SVD.html">SVD - Software Version Description</a>
+                          <div class="description">Original MIL-STD-498 HTML template</div></li>
+                  </ul>
+              </div>
+              
+              <div class="section">
+                  <h2>Repository Information</h2>
+                  <p>This repository contains MIL-STD-498 document templates converted to StrictDoc format. The documentation is automatically generated and deployed via GitHub Actions.</p>
+                  <p><strong>Source:</strong> <a href="https://github.com/AutomotiveDevOps/MIL-STD-498">GitHub Repository</a></p>
+              </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book
+          publish_dir: ./docs
