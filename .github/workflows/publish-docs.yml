@@ -41,10 +41,16 @@ jobs:
 
       - name: Generate StrictDoc files from HTML/Markdown
         run: |
+          pwd
+          ls -la
           .venv/bin/python convert_to_strictdoc_final.py
 
       - name: Debug - Check StrictDoc files exist
         run: |
+          echo "=== Current directory ==="
+          pwd
+          echo "=== Repository contents ==="
+          ls -la
           echo "=== StrictDoc HTML files ==="
           ls -la strictdoc_html/*.sdoc | head -10
           echo "=== StrictDoc MD files ==="
@@ -52,57 +58,71 @@ jobs:
 
       - name: Generate StrictDoc HTML documentation (HTML sources)
         run: |
-          .venv/bin/strictdoc export --formats=html --output-dir=temp_strictdoc_output strictdoc_html
+          echo "=== Current directory ==="
+          pwd
+          .venv/bin/strictdoc export --formats=html --output-dir=./temp_strictdoc_output ./strictdoc_html
 
       - name: Copy StrictDoc HTML files to correct location
         run: |
+          echo "=== Current directory ==="
+          pwd
           # Create the directory structure
-          mkdir -p docs/strictdoc_html/html
+          mkdir -p ./docs/strictdoc_html/html
           # Copy the HTML files from the generated output
-          cp -r temp_strictdoc_output/html/strictdoc_html/* docs/strictdoc_html/html/
+          cp -r ./temp_strictdoc_output/html/strictdoc_html/* ./docs/strictdoc_html/html/
           # Copy the static assets
-          cp -r temp_strictdoc_output/html/_static docs/strictdoc_html/
+          cp -r ./temp_strictdoc_output/html/_static ./docs/strictdoc_html/
           # Copy the index.html if it exists
-          if [ -f "temp_strictdoc_output/html/index.html" ]; then
-            cp temp_strictdoc_output/html/index.html docs/strictdoc_html/
+          if [ -f "./temp_strictdoc_output/html/index.html" ]; then
+            cp ./temp_strictdoc_output/html/index.html ./docs/strictdoc_html/
           fi
           # Clean up temporary directory
-          rm -rf temp_strictdoc_output
+          rm -rf ./temp_strictdoc_output
 
       - name: Debug - List docs directory contents
         run: |
+          echo "=== Current directory ==="
+          pwd
           echo "=== Contents of docs directory ==="
-          find docs -type f -name "*.html" | head -20
+          find ./docs -type f -name "*.html" | head -20
           echo "=== Contents of docs/strictdoc_html ==="
-          ls -la docs/strictdoc_html/ || echo "Directory does not exist"
+          ls -la ./docs/strictdoc_html/ || echo "Directory does not exist"
           echo "=== Contents of docs/strictdoc_html/html ==="
-          ls -la docs/strictdoc_html/html/ || echo "Directory does not exist"
+          ls -la ./docs/strictdoc_html/html/ || echo "Directory does not exist"
 
       - name: Generate StrictDoc HTML documentation (Markdown sources)
         run: |
-          .venv/bin/strictdoc export --formats=html --output-dir=temp_strictdoc_md_output strictdoc_md
+          echo "=== Current directory ==="
+          pwd
+          .venv/bin/strictdoc export --formats=html --output-dir=./temp_strictdoc_md_output ./strictdoc_md
 
       - name: Copy StrictDoc Markdown HTML files to correct location
         run: |
+          echo "=== Current directory ==="
+          pwd
           # Create the directory structure
-          mkdir -p docs/strictdoc_md/html
+          mkdir -p ./docs/strictdoc_md/html
           # Copy the HTML files from the generated output
-          cp -r temp_strictdoc_md_output/html/strictdoc_md/* docs/strictdoc_md/html/
+          cp -r ./temp_strictdoc_md_output/html/strictdoc_md/* ./docs/strictdoc_md/html/
           # Copy the static assets (if not already copied)
-          if [ ! -d "docs/strictdoc_md/_static" ]; then
-            cp -r temp_strictdoc_md_output/html/_static docs/strictdoc_md/
+          if [ ! -d "./docs/strictdoc_md/_static" ]; then
+            cp -r ./temp_strictdoc_md_output/html/_static ./docs/strictdoc_md/
           fi
           # Clean up temporary directory
-          rm -rf temp_strictdoc_md_output
+          rm -rf ./temp_strictdoc_md_output
 
       - name: Copy original MIL-STD-498 HTML files
         run: |
-          mkdir -p docs/original_html
-          find original/original_MIL-STD-498_html -name "*" -exec cp {} docs/original_html/ \;
+          echo "=== Current directory ==="
+          pwd
+          mkdir -p ./docs/original_html
+          find ./original/original_MIL-STD-498_html -name "*" -exec cp {} ./docs/original_html/ \;
 
       - name: Create comprehensive index page
         run: |
-          cat > docs/index.html << 'EOF'
+          echo "=== Current directory ==="
+          pwd
+          cat > ./docs/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
           <head>
