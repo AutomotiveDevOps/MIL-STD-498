@@ -33,14 +33,16 @@ jobs:
         with:
           version: "latest"
 
+      - name: Create virtual environment
+        run: uv venv .venv
+
       - name: Install dependencies
-        run: |
-          uv pip install strictdoc beautifulsoup4 html2text
+        run: .venv/bin/uv pip install strictdoc beautifulsoup4 html2text
 
       - name: Generate StrictDoc HTML documentation
         run: |
           cd strictdoc_documents
-          uv run strictdoc export --formats=html --output-dir=../docs/ .
+          ../.venv/bin/strictdoc export --formats=html --output-dir=../docs/ .
 
       - name: Copy original MIL-STD-498 HTML files
         run: |
