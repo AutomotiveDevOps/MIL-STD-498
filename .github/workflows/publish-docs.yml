@@ -54,7 +54,7 @@ jobs:
       - name: Copy original MIL-STD-498 HTML files
         run: |
           mkdir -p docs/original_html
-          cp ./*.html docs/original_html/
+          find html -name "*.html" -exec cp {} docs/original_html/ \;
 
       - name: Create comprehensive index page
         run: |
