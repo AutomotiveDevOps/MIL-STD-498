@@ -39,6 +39,10 @@ jobs:
       - name: Install dependencies
         run: uv pip install -p .venv strictdoc beautifulsoup4 html2text
 
+      - name: Generate StrictDoc files from HTML/Markdown
+        run: |
+          .venv/bin/python convert_to_strictdoc_final.py
+
       - name: Generate StrictDoc HTML documentation
         run: |
           cd strictdoc_documents
