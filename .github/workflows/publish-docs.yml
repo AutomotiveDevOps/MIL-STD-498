@@ -43,10 +43,13 @@ jobs:
         run: |
           .venv/bin/python convert_to_strictdoc_final.py
 
-      - name: Generate StrictDoc HTML documentation
+      - name: Generate StrictDoc HTML documentation (HTML sources)
         run: |
-          cd strictdoc_documents
-          ../.venv/bin/strictdoc export --formats=html --output-dir=../docs/ .
+          .venv/bin/strictdoc export --formats=html --output-dir=docs/strictdoc_html strictdoc_html
+
+      - name: Generate StrictDoc HTML documentation (Markdown sources)
+        run: |
+          .venv/bin/strictdoc export --formats=html --output-dir=docs/strictdoc_md strictdoc_md
 
       - name: Copy original MIL-STD-498 HTML files
         run: |

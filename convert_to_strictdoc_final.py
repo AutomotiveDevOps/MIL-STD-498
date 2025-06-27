@@ -198,57 +198,66 @@ def get_document_mapping() -> Dict[str, str]:
 
 def main():
     """Main conversion function."""
-    # Create output directory
-    output_dir = "strictdoc_documents"
-    os.makedirs(output_dir, exist_ok=True)
-    
+    # Output directories
+    html_output_dir = "strictdoc_html"
+    md_output_dir = "strictdoc_md"
+    os.makedirs(html_output_dir, exist_ok=True)
+    os.makedirs(md_output_dir, exist_ok=True)
+
     # Get document mapping
     doc_mapping = get_document_mapping()
-    
+
     # Initialize converters
     html_converter = HTMLToStrictDocConverter()
     md_converter = MarkdownToStrictDocConverter()
-    
-    # Get all HTML files
-    html_files = [f for f in os.listdir('.') if f.endswith('.html')]
-    
+
+    # Get all HTML files from html/
+    html_dir = "html"
+    html_files = [f for f in os.listdir(html_dir) if f.endswith('.html')]
+
+    # Get all Markdown files from md/
+    md_dir = "md"
+    md_files = [f for f in os.listdir(md_dir) if f.endswith('.md')]
+
     converted_files = []
-    
+
     for html_file in sorted(html_files):
         base_name = Path(html_file).stem
-        md_file = f"{html_file}.md"
-        
-        print(f"Processing {html_file}...")
-        
+        html_path = os.path.join(html_dir, html_file)
         # Convert HTML to StrictDoc
         try:
-            output_path = html_converter.convert_html_to_strictdoc(html_file, output_dir)
+            output_path = os.path.join(html_output_dir, f"{base_name}.html.sdoc")
+            strictdoc_content = html_converter.convert_html_to_strictdoc(html_path, html_output_dir)
+            # Rename output to .html.sdoc
+            os.rename(os.path.join(html_output_dir, f"{base_name}.sdoc"), output_path)
             converted_files.append(output_path)
             print(f"  ✓ Converted {html_file} -> {output_path}")
         except Exception as e:
             print(f"  ✗ Error converting {html_file}: {e}")
-        
-        # Convert Markdown to StrictDoc (if exists)
-        if os.path.exists(md_file):
-            try:
-                output_path = md_converter.convert_markdown_to_strictdoc(md_file, output_dir)
-                # Rename to avoid conflicts
-                new_output_path = output_path.replace('.sdoc', '_md.sdoc')
-                os.rename(output_path, new_output_path)
-                converted_files.append(new_output_path)
-                print(f"  ✓ Converted {md_file} -> {new_output_path}")
-            except Exception as e:
-                print(f"  ✗ Error converting {md_file}: {e}")
-    
-    print(f"\nConversion complete! {len(converted_files)} files converted to {output_dir}/")
-    
+
+    for md_file in sorted(md_files):
+        base_name = Path(md_file).stem.replace('.html', '')
+        md_path = os.path.join(md_dir, md_file)
+        # Convert Markdown to StrictDoc
+        try:
+            output_path = os.path.join(md_output_dir, f"{base_name}.md.sdoc")
+            strictdoc_content = md_converter.convert_markdown_to_strictdoc(md_path, md_output_dir)
+            # Rename output to .md.sdoc
+            os.rename(os.path.join(md_output_dir, f"{base_name}.sdoc"), output_path)
+            converted_files.append(output_path)
+            print(f"  ✓ Converted {md_file} -> {output_path}")
+        except Exception as e:
+            print(f"  ✗ Error converting {md_file}: {e}")
+
+    print(f"\nConversion complete! {len(converted_files)} files converted to {html_output_dir}/ and {md_output_dir}/")
+
     # Create index file
-    create_index_file(output_dir, converted_files, doc_mapping)
-    
+    create_index_file(html_output_dir, md_output_dir, converted_files, doc_mapping)
+
     return converted_files
 
 
-def create_index_file(output_dir: str, converted_files: List[str], doc_mapping: Dict[str, str]):
+def create_index_file(html_output_dir: str, md_output_dir: str, converted_files: List[str], doc_mapping: Dict[str, str]):
     """Create an index file listing all converted documents."""
     index_content = """# MIL-STD-498 StrictDoc Documents Index
 
@@ -257,24 +266,22 @@ This directory contains MIL-STD-498 document templates converted to StrictDoc fo
 ## Document Types
 
 """
-    
-    # Group files by type
-    html_files = [f for f in converted_files if not f.endswith('_md.sdoc')]
-    md_files = [f for f in converted_files if f.endswith('_md.sdoc')]
-    
-    index_content += "### HTML-based conversions:\n"
+    html_files = [f for f in converted_files if f.startswith(html_output_dir)]
+    md_files = [f for f in converted_files if f.startswith(md_output_dir)]
+
+    index_content += "### HTML-based conversions (strictdoc_html):\n"
     for file_path in sorted(html_files):
-        base_name = Path(file_path).stem
+        base_name = Path(file_path).stem.replace('.html', '')
         full_name = doc_mapping.get(base_name, base_name)
         index_content += f"- [{full_name}]({file_path})\n"
-    
+
     if md_files:
-        index_content += "\n### Markdown-based conversions:\n"
+        index_content += "\n### Markdown-based conversions (strictdoc_md):\n"
         for file_path in sorted(md_files):
-            base_name = Path(file_path).stem.replace('_md', '')
+            base_name = Path(file_path).stem.replace('.md', '')
             full_name = doc_mapping.get(base_name, base_name)
             index_content += f"- [{full_name} (MD)]({file_path})\n"
-    
+
     index_content += f"""
 
 ## Conversion Information
@@ -301,11 +308,9 @@ strictdoc export --formats=reqif-spec --output-dir=output/ .
 ```
 
 """
-    
-    index_path = os.path.join(output_dir, "INDEX.md")
+    index_path = os.path.join(".", "STRICTDOC_INDEX.md")
     with open(index_path, 'w', encoding='utf-8') as f:
         f.write(index_content)
-    
     print(f"Created index file: {index_path}")
 
 
