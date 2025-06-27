@@ -33,7 +33,7 @@ jobs:
           
           # Copy original HTML files
           mkdir -p docs/original_html
-          cp html/*.html docs/original_html/
+          find html -name "*.html" -exec cp {} docs/original_html/ \;
           
           # Create index page
           cat > docs/index.html << 'EOF'
