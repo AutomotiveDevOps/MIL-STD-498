@@ -1,0 +1,3 @@
+<div class="document">
+<p><strong>22 HTML files</strong>: Original MILSTD498 document templates <strong>22 Markdown files</strong>: Converted versions of the HTML files using Pandoc <strong>44 StrictDoc files</strong>: MILSTD498 documents converted to StrictDoc format <strong>GitHub Actions workflow</strong>: Automated documentation generation and deployment</p>
+</div>

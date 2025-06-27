@@ -1,0 +1,3 @@
+<div class="document">
+<p>This paragraph shall describe conditions that apply to all of the tests or to a group of tests. For example: &quot;Each test shall include nominal, maximum, and minimum values;&quot; &quot;each test of type x shall use live data;&quot; &quot;execution size and time shall be measured for each CSCI.&quot; Included shall be a statement of the extent of testing to be performed and rationale for the extent selected. The extent of testing shall be expressed as a percentage of some well defined total quantity, such as the number...</p>
+</div>

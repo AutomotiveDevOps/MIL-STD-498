@@ -1,0 +1,3 @@
+<div class="document">
+<p>For systemlevel specifications, this paragraph does not apply. For subsystemlevel specifications, this paragraph shall contain:Traceability from each subsystem requirement in this specification to the system requirements it addresses. (Alternatively, this traceability may be provided by annotating each requirement in Section 3.)Note: Each level of system refinement may result in requirements not directly traceable to higherlevel requirements. For example, a system architectural design that cr...</p>
+</div>

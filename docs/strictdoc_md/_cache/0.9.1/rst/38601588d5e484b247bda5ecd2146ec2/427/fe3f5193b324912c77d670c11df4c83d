@@ -1,0 +1,3 @@
+<div class="document">
+<p>This paragraph shall describe acceptable phasing of the software into a logical series of operations. A run may be phased to permit manual or semiautomatic checking of intermediate results, to provide the user with intermediate results for other purposes, or to permit a logical break if higher priority jobs are submitted. An example of the minimum division for most systems would be edit, file update, and report preparation.</p>
+</div>

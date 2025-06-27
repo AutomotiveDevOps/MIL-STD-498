@@ -52,7 +52,22 @@ jobs:
 
       - name: Generate StrictDoc HTML documentation (HTML sources)
         run: |
-          .venv/bin/strictdoc export --formats=html --output-dir=docs/strictdoc_html strictdoc_html
+          .venv/bin/strictdoc export --formats=html --output-dir=temp_strictdoc_output strictdoc_html
+
+      - name: Copy StrictDoc HTML files to correct location
+        run: |
+          # Create the directory structure
+          mkdir -p docs/strictdoc_html/html
+          # Copy the HTML files from the generated output
+          cp -r temp_strictdoc_output/html/strictdoc_html/* docs/strictdoc_html/html/
+          # Copy the static assets
+          cp -r temp_strictdoc_output/html/_static docs/strictdoc_html/
+          # Copy the index.html if it exists
+          if [ -f "temp_strictdoc_output/html/index.html" ]; then
+            cp temp_strictdoc_output/html/index.html docs/strictdoc_html/
+          fi
+          # Clean up temporary directory
+          rm -rf temp_strictdoc_output
 
       - name: Debug - List docs directory contents
         run: |
@@ -65,12 +80,25 @@ jobs:
 
       - name: Generate StrictDoc HTML documentation (Markdown sources)
         run: |
-          .venv/bin/strictdoc export --formats=html --output-dir=docs/strictdoc_md strictdoc_md
+          .venv/bin/strictdoc export --formats=html --output-dir=temp_strictdoc_md_output strictdoc_md
+
+      - name: Copy StrictDoc Markdown HTML files to correct location
+        run: |
+          # Create the directory structure
+          mkdir -p docs/strictdoc_md/html
+          # Copy the HTML files from the generated output
+          cp -r temp_strictdoc_md_output/html/strictdoc_md/* docs/strictdoc_md/html/
+          # Copy the static assets (if not already copied)
+          if [ ! -d "docs/strictdoc_md/_static" ]; then
+            cp -r temp_strictdoc_md_output/html/_static docs/strictdoc_md/
+          fi
+          # Clean up temporary directory
+          rm -rf temp_strictdoc_md_output
 
       - name: Copy original MIL-STD-498 HTML files
         run: |
           mkdir -p docs/original_html
-          find html -name "*.html" -exec cp {} docs/original_html/ \;
+          find html -name "*" -exec cp {} docs/original_html/ \;
 
       - name: Create comprehensive index page
         run: |
