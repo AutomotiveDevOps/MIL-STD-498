@@ -1,0 +1,128 @@
+[DOCUMENT]
+TITLE: SSDD.html
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-560
+STATUS: Draft
+TITLE: 1. Scope.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-561
+STATUS: Draft
+TITLE: 1.1 Identification.
+STATEMENT: This paragraph shall contain a full identification of the system to which this document applies, including, as applicable, identification number(s), title(s), abbreviation(s), version number(s), and release number(s).
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-562
+STATUS: Draft
+TITLE: 1.2 System overview.
+STATEMENT: This paragraph shall briefly state the purpose of the system to which this document applies. It shall describe the general nature of the system; summarize the history of system development, operation, and maintenance; identify the project sponsor, acquirer, user, developer, and support agencies; identify current and planned operating sites; and list other relevant documents.
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-563
+STATUS: Draft
+TITLE: 1.3 Document overview.
+STATEMENT: paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-564
+STATUS: Draft
+TITLE: 2. Referenced documents.
+STATEMENT: This section shall list the number, title, revision, and date of all documents referenced in this document. This section shall also identify the source for all documents not available through normal Government stocking activities.
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-565
+STATUS: Draft
+TITLE: 3. Systemwide design decisions.
+STATEMENT: This section shall be divided into paragraphs as needed to present systemwide design decisions, that is, decisions about the system's behavioral design (how it will behave, from a user's point of view, in meeting its requirements, ignoring internal implementation) and other decisions affecting the selection and design of system components. If all such decisions are explicit in the requirements or are deferred to the design of the system components, this section shall so state. Design decision...
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-566
+STATUS: Draft
+TITLE: 4. System architectural design.
+STATEMENT: This section shall be divided into the following paragraphs to describe the system architectural design. If part or all of the design depends upon system states or modes, this dependency shall be indicated. If design information falls into more than one paragraph, it may be presented once and referenced from the other paragraphs. Design conventions needed to understand the design shall be presented or referenced. Note: For brevity, this section is written in terms of organizing a system direc...
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-567
+STATUS: Draft
+TITLE: 4.1 System components.
+STATEMENT: This paragraph shall: Identify the components of the system (HWCIs, CSCIs, and manual operations). Each component shall be assigned a projectunique identifier. Note: a database may be treated as a CSCI or as part of a CSCI. Show the static (such as "consists of") relationship(s) of the components. Multiple relationships may be presented, depending on the selected design methodology. State the purpose of each component and identify the system requirements and systemwide design decisions alloca...
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-568
+STATUS: Draft
+TITLE: 4.2 Concept of execution.
+STATEMENT: This paragraph shall describe the concept of execution among the system components. It shall include diagrams and descriptions showing the dynamic relationship of the components, that is, how they will interact during system operation, including, as applicable, flow of execution control, data flow, dynamically controlled sequencing, state transition diagrams, timing diagrams, priorities among components, handling of interrupts, timing/sequencing relationships, exception handling, concurrent e...
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-569
+STATUS: Draft
+TITLE: 4.3 Interface design.
+STATEMENT: This paragraph shall be divided into the following subparagraphs to describe the interface characteristics of the system components. It shall include both interfaces among the components and their interfaces with external entities such as other systems, configuration items, and users. Note: There is no requirement for these interfaces to be completely designed at this level; this paragraph is provided to allow the recording of interface design decisions made as part of system architectural de...
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-570
+STATUS: Draft
+TITLE: 4.3.1 Interface identification and diagrams.
+STATEMENT: This paragraph shall state the projectunique identifier assigned to each interface and shall identify the interfacing entities (systems, configuration items, users, etc.) by name, number, version, and documentation references, as applicable. The identification shall state which entities have fixed interface characteristics (and therefore impose interface requirements on interfacing entities) and which are being developed or modified (thus having interface requirements imposed on them). One or...
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-571
+STATUS: Draft
+TITLE: 4.3.x (Project unique identifier of interface).
+STATEMENT: This paragraph (beginning with 4.3.2) shall identify an interface by project unique identifier, shall briefly identify the interfacing entities, and shall be divided into subparagraphs as needed to describe the interface characteristics of one or both of the interfacing entities. If a given interfacing entity is not covered by this SSDD (for example, an external system) but its interface characteristics need to be mentioned to describe interfacing entities that are, these characteristics shal...
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-572
+STATUS: Draft
+TITLE: 5. Requirements traceability.
+STATEMENT: This paragraph shall contain: Traceability from each system component identified in this SSDD to the system requirements allocated to it. (Alternatively, this traceability may be provided in 4.1.) Traceability from each system requirement to the system components to which it is allocated.
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-573
+STATUS: Draft
+TITLE: 6. Notes.
+STATEMENT: This section shall contain any general information that aids in understanding this document (e.g., background information, glossary, rationale). This section shall contain an alphabetical listing of all acronyms, abbreviations, and their meanings as used in this document and a list of any terms and definitions needed to understand this document.
+RATIONALE: Converted from SSDD.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-574
+STATUS: Draft
+TITLE: A. Appendixes.
+STATEMENT: Appendixes may be used to provide information published separately for convenience in document maintenance (e.g., charts, classified data). As applicable, each appendix shall be referenced in the main body of the document where the data would normally have been provided. Appendixes may be bound as separate documents for ease in handling. Appendixes shall be lettered alphabetically (A, B, etc.).
+RATIONALE: Converted from SSDD.html.md heading.
+

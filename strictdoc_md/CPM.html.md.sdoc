@@ -1,0 +1,86 @@
+[DOCUMENT]
+TITLE: CPM.html
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-064
+STATUS: Draft
+TITLE: 1. Scope.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from CPM.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-065
+STATUS: Draft
+TITLE: 1.1 Identification.
+STATEMENT: This paragraph shall contain the manufacturer's name, model number, and any other identifying information for the computer system to which this document applies.
+RATIONALE: Converted from CPM.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-066
+STATUS: Draft
+TITLE: 1.2 Computer system overview.
+STATEMENT: This paragraph shall briefly state the purpose of the computer system to which this document applies.
+RATIONALE: Converted from CPM.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-067
+STATUS: Draft
+TITLE: 1.3 Document overview.
+STATEMENT: This paragraph shall summarize the purpose and contents of this manual and shall describe any security or privacy considerations associated with its use.
+RATIONALE: Converted from CPM.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-068
+STATUS: Draft
+TITLE: 2. Referenced documents.
+STATEMENT: This section shall list the number, title, revision, and date of all documents referenced in this manual. This section shall also identify the source for all documents not available through normal Government stocking activities.
+RATIONALE: Converted from CPM.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-069
+STATUS: Draft
+TITLE: 3. Programming environment.
+STATEMENT: This section shall be divided into paragraphs as appropriate to provide the following information. The components and configuration of the computer system Operating characteristics, capabilities, and limitations, including, as applicable: 1. Machine cycle time 2. Word length 3. Memory capacity and characteristics 4. Instruction set characteristics 5. Interrupt capabilities 6. Modes of operation (e.g., batch, interactive, privileged, nonprivileged) 7. Operational registers 8. Error indicators ...
+RATIONALE: Converted from CPM.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-070
+STATUS: Draft
+TITLE: 4. Programming information.
+STATEMENT: This section shall be divided into paragraphs as appropriate to provide the following information. Description of the programming features of the computer's instruction set architecture, including, as applicable: 1. Data representation (e.g., byte, word, integer, floating point, double precision) 2. Instruction formats and addressing modes 3. Special registers and words (e.g., stack pointer, program counter) 4. Control instructions (e.g., branch, jump, subroutine and procedure call instructio...
+RATIONALE: Converted from CPM.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-071
+STATUS: Draft
+TITLE: 5. Notes.
+STATEMENT: This section shall contain any general information that aids in understanding this document (e.g., background information, glossary, rationale). This section shall include an alphabetical listing of all acronyms, abbreviations, and their meanings as used in this document and a list of terms and definitions needed to understand this document
+RATIONALE: Converted from CPM.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-072
+STATUS: Draft
+TITLE: A. Appendixes.
+STATEMENT: Appendixes may be used to provide information published separately for convenience in document maintenance (e.g., charts, classified data). As applicable, each appendix shall be referenced in the main body of the document where the data would normally have been provided. Appendixes may be bound as separate documents for ease in handling. Appendixes shall be lettered alphabetically (A, B, etc.).
+RATIONALE: Converted from CPM.html.md heading.
+

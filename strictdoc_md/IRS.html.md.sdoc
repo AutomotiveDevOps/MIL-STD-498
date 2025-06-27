@@ -1,0 +1,114 @@
+[DOCUMENT]
+TITLE: IRS.html
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-322
+STATUS: Draft
+TITLE: 1. Scope.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-323
+STATUS: Draft
+TITLE: 1.1 Identification.
+STATEMENT: This paragraph shall contain a full identification of the systems, the interfacing entities, and the interfaces to which this document applies, including, as applicable, identification number(s), title(s), abbreviation(s), version number(s), and release number(s).
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-324
+STATUS: Draft
+TITLE: 1.2 System overview.
+STATEMENT: This paragraph shall briefly state the purpose of the system(s) and software to which this document applies. It shall describe the general nature of the system and software; summarize the history of system development, operation, and maintenance; identify the project sponsor, acquirer, user, developer, and support agencies; identify current and planned operating sites; and list other relevant documents.
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-325
+STATUS: Draft
+TITLE: 1.3 Document overview.
+STATEMENT: This paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-326
+STATUS: Draft
+TITLE: 2. Referenced documents.
+STATEMENT: This section shall list the number, title, revision, and date of all documents referenced in this specification. This section shall also identify the source for all documents not available through normal Government stocking activities.
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-327
+STATUS: Draft
+TITLE: 3. Requirements.
+STATEMENT: This section shall be divided into the following paragraphs to specify the requirements imposed on one or more systems, subsystems, configuration items, manual operations, or other system components to achieve one or more interfaces among these entities. Each requirement shall be assigned a projectunique identifier to support testing and traceability and shall be stated in such a way that an objective test can be defined for it. Each requirement shall be annotated with associated qualificatio...
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-328
+STATUS: Draft
+TITLE: 3.1 Interface identification and diagrams.
+STATEMENT: For each interface identified in 1.1, this paragraph shall include a projectunique identifier and shall designate the interfacing entities (systems, configuration items, users, etc.) by name, number, version, and documentation references, as applicable. The identification shall state which entities have fixed interface characteristics (and therefore impose interface requirements on interfacing entities) and which are being developed or modified (thus having interface requirements imposed on t...
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-329
+STATUS: Draft
+TITLE: 3.x (Project unique identifier of interface).
+STATEMENT: This paragraph (beginning with 3.2) shall identify an interface by project unique identifier, shall briefly identify the interfacing entities, and shall be divided into subparagraphs as needed to state the requirements imposed on one or more of the interfacing entities to achieve the interface. If the interface characteristics of an entity are not covered by this IRS but need to be mentioned to specify the requirements for entities that are, those characteristics shall be stated as assumption...
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-330
+STATUS: Draft
+TITLE: 3.y Precedence and criticality of requirements.
+STATEMENT: This paragraph shall be numbered as the last paragraph in Section 3 and shall specify, if applicable, the order of precedence, criticality, or assigned weights indicating the relative importance of the requirements in this specification. Examples include identifying those requirements deemed critical to safety, to security, or to privacy for purposes of singling them out for special treatment. If all requirements have equal weight, this paragraph shall so state.
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-331
+STATUS: Draft
+TITLE: 4. Qualification provisions.
+STATEMENT: This section shall define a set of qualification methods and shall specify, for each requirement in Section 3, the qualification method(s) to be used to ensure that the requirement has been met. A table may be used to present this information, or each requirement in Section 3 may be annotated with the method(s) to be used. Qualification methods may include: Demonstration: The operation of interfacing entities that relies on observable functional operation not requiring the use of instrumentat...
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-332
+STATUS: Draft
+TITLE: 5. Requirements traceability
+STATEMENT: For systemlevel interfacing entities, this paragraph does not apply. For each subsystemor lowerlevel interfacing entity covered by this IRS, this paragraph shall contain: Traceability from each requirement imposed on the entity in this specification to the system (or subsystem, if applicable) requirements it addresses. (Alternatively, this traceability may be provided by annotating each requirement in Section 3.) Note: Each level of system refinement may result in requirements not directly tr...
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-333
+STATUS: Draft
+TITLE: 6. Notes.
+STATEMENT: This section shall contain any general information that aids in understanding this document (e.g., background information, glossary, rationale). This section shall include an alphabetical listing of all acronyms, abbreviations, and their meanings as used in this document and a list of any terms and definitions needed to understand this document.
+RATIONALE: Converted from IRS.html.md heading.
+
+[REQUIREMENT]
+UID: REQ-334
+STATUS: Draft
+TITLE: A. Appendixes.
+STATEMENT: Appendixes may be used to provide information published separately for convenience in document maintenance (e.g., charts, classified data). As applicable, each appendix shall be referenced in the main body of the document where the data would normally have been provided. Appendixes may be bound as separate documents for ease in handling. Appendixes shall be lettered alphabetically (A, B, etc.).
+RATIONALE: Converted from IRS.html.md heading.
+

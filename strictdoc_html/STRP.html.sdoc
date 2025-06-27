@@ -1,0 +1,170 @@
+[DOCUMENT]
+TITLE: STRP
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-001
+STATUS: Draft
+TITLE: 1. Scope.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-002
+STATUS: Draft
+TITLE: 1.1 Identification.
+STATEMENT: This paragraph shall contain a full identification of the system and the software to which this document applies, including, as applicable, identification number(s), title(s), abbreviation(s), version number(s), and release number(s).
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-003
+STATUS: Draft
+TITLE: 1.2 System overview.
+STATEMENT: This paragraph shall briefly state the purpose of the system and the software to which this document applies. It shall describe the general nature of the system and software; summarize the history of system development, operation, and maintenance; identify the project sponsor, acquirer, user, developer, and support agencies; identify current and planned operating sites; and list other relevant documents.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-004
+STATUS: Draft
+TITLE: 1.3 Document overview.
+STATEMENT: This paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-005
+STATUS: Draft
+TITLE: 1.4 Relationship to other plans.
+STATEMENT: This paragraph shall describe the relationship, if any, of the STrP to other project management plans.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-006
+STATUS: Draft
+TITLE: 2. Referenced documents.
+STATEMENT: This section shall list the number, title, revision, and date of all documents referenced in this document. This section shall also identify the source for all documents not available through normal Government stocking activities.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-007
+STATUS: Draft
+TITLE: 3. Software support resources.
+STATEMENT: This section shall be divided into paragraphs to identify and describe the resources needed to support the deliverable software. These resources shall include items needed to control, copy, and distribute the software and its documentation, and to specify, design, implement, document, test, evaluate, control, copy, and distribute modifications to the software.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-008
+STATUS: Draft
+TITLE: 3.1 Facilities.
+STATEMENT: This paragraph shall describe the facilities needed to support the deliverable software. These facilities may include special buildings, rooms, mockups, building features such as raised flooring or cabling; building features to support security and privacy requirements (TEMPEST shielding, vaults, etc.), building features to support safety requirements (smoke alarms, safety glass, etc.), special power requirements, and so on. The purpose of each item shall be described. Diagrams may be include...
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-009
+STATUS: Draft
+TITLE: 3.2 Hardware.
+STATEMENT: This paragraph shall identify and describe the hardware and associated documentation needed to support the deliverable software. This hardware may include computers, peripheral equipment, hardware simulators, stimulators, emulators, diagnostic equipment, and noncomputer equipment. The description shall include:Specific models, versions, and configurationsRationale for the selected hardwareReference to user/operator manuals or instructions for each item, as applicableIdentification of each har...
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-010
+STATUS: Draft
+TITLE: 3.3 Software.
+STATEMENT: This paragraph shall identify and describe the software and associated documentation needed to support the deliverable software. This software may include computeraided software engineering (CASE) tools, data in these tools, compilers, test tools, test data, simulations, emulations, utilities, configuration management tools, databases and data files, and other software. The description shall include:Specific names, identification numbers, version numbers, release numbers, and configurations, ...
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-011
+STATUS: Draft
+TITLE: 3.4 Other documentation.
+STATEMENT: This paragraph shall identify any other documentation needed to support the deliverable software. The list will include, for example, plans, reports, studies, specifications, design descriptions, test cases/procedures, test reports, user/operator manuals, and support manuals for the deliverable software. This paragraph shall provide:Names, identification numbers, version numbers, and release numbers, as applicableRationale for including each document in the listIdentification of each document...
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-012
+STATUS: Draft
+TITLE: 3.5 Personnel.
+STATEMENT: This paragraph shall describe the personnel needed to support the deliverable software, including anticipated number of personnel, types and levels of skills and expertise, and security clearances. This paragraph shall cite, as applicable, actual staffing on the development project as a basis for the staffing needs cited.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-013
+STATUS: Draft
+TITLE: 3.6 Other resources.
+STATEMENT: This paragraph shall describe the personnel needed to support the deliverable software, including anticipated number of personnel, types and levels of skills and expertise, and security clearances. This paragraph shall cite, as applicable, actual staffing on the development project as a basis for the staffing needs cited.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-014
+STATUS: Draft
+TITLE: 3.6 Other resources.
+STATEMENT: This paragraph shall identify any other resources needed to support the deliverable software. Included may be consumables such as magnetic tapes and diskettes, together with an estimate of the type and number that should be acquired.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-015
+STATUS: Draft
+TITLE: 3.7 Interrelationship of components.
+STATEMENT: This paragraph shall identify the interrelationships of the components identified in the preceding paragraphs. A figure may be used to show the interrelationships.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-016
+STATUS: Draft
+TITLE: 4. Recommended procedures.
+STATEMENT: This section shall be divided into paragraphs as needed to describe any procedures, including advice and lessons learned, that the developer may wish to recommend to the support agency for supporting the deliverable software and associated support environment.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-017
+STATUS: Draft
+TITLE: 5. Training.
+STATEMENT: This section shall be divided into paragraphs as appropriate to describe the developer's plans for training support personnel to support of the deliverable software. This section shall include:The schedule, duration, and location for the trainingThe delineation between classroom training and "hands on" trainingProvision (either directly or by reference) for:Familiarization with the operational software and target computer(s)Familiarization with the support software and host system
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-018
+STATUS: Draft
+TITLE: 6. Anticipated areas of change.
+STATEMENT: This section shall describe anticipated areas of change to the deliverable software.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-019
+STATUS: Draft
+TITLE: 7. Transition planning.
+STATEMENT: This section shall be divided into paragraphs as needed to describe the developer's plans for transitioning the deliverable software to the support agency. This section shall address the following:All activities to be performed to transition the deliverable software to the support agency. These activities may include planning/coordination meetings; preparation of items to be delivered to the support agency; packaging, shipment, installation, and checkout of the software support environment; p...
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-020
+STATUS: Draft
+TITLE: 8. Notes.
+STATEMENT: This section shall contain any general information that aids in understanding this document (e.g., background information, glossary, rationale). This section shall include an alphabetical listing of all acronyms, abbreviations, and their meanings as used in this document and a list of any terms and definitions needed to understand this document.
+RATIONALE: Converted from STRP.html heading.
+
+[REQUIREMENT]
+UID: REQ-021
+STATUS: Draft
+TITLE: A. Appendixes.
+STATEMENT: Appendixes may be used to provide information published separately for convenience in document maintenance (e.g., charts, classified data). As applicable, each appendix shall be referenced in the main body of the document where the data would normally have been provided. Appendixes may be bound as separate documents for ease in handling. Appendixes shall be lettered alphabetically (A, B, etc.).
+RATIONALE: Converted from STRP.html heading.
+

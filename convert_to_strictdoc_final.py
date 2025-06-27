@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Convert MIL-STD-498 HTML and Markdown files to StrictDoc format.
+Convert HTML and Markdown files to StrictDoc format following proper grammar rules.
 
-This script reads HTML and Markdown files and converts them to StrictDoc (.sdoc) format
-following the StrictDoc grammar rules exactly.
+This script converts MIL-STD-498 document templates from HTML and Markdown formats
+to StrictDoc (.sdoc) format, ensuring compliance with the StrictDoc grammar specification.
 
 Author: Claude Sonnet 4 (claude-3-5-sonnet-20241022)
 Generated via Cursor IDE (cursor.sh) with AI assistance
@@ -16,302 +16,388 @@ import os
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
-from bs4 import BeautifulSoup
+from typing import List, Dict, Any, Optional, Tuple
 import html2text
+from bs4 import BeautifulSoup
+import yaml
 
 
-class HTMLToStrictDocConverter:
-    """Convert HTML files to StrictDoc format."""
+class StrictDocConverter:
+    """Convert HTML and Markdown files to StrictDoc format following grammar rules."""
     
     def __init__(self):
-        self.h2t = html2text.HTML2Text()
-        self.h2t.ignore_links = False
-        self.h2t.ignore_images = False
-        self.h2t.body_width = 0  # No line wrapping
+        self.requirement_counter = 1
         
-    def extract_title_from_html(self, html_content: str) -> str:
-        """Extract document title from HTML."""
-        soup = BeautifulSoup(html_content, 'html.parser')
-        title_tag = soup.find('title')
-        if title_tag:
-            return title_tag.get_text().strip()
-        return "Untitled Document"
-    
-    def html_to_markdown(self, html_content: str) -> str:
-        """Convert HTML to Markdown."""
-        return self.h2t.handle(html_content)
-    
-    def clean_markdown(self, markdown_content: str) -> str:
-        """Clean up markdown content for StrictDoc."""
-        # Remove HTML comments
-        markdown_content = re.sub(r'<!--.*?-->', '', markdown_content, flags=re.DOTALL)
-        
-        # Clean up excessive whitespace
-        markdown_content = re.sub(r'\n\s*\n\s*\n', '\n\n', markdown_content)
-        
+    def clean_text_for_single_line(self, text: str) -> str:
+        """Clean text for single-line fields according to StrictDoc grammar."""
         # Remove leading/trailing whitespace
-        markdown_content = markdown_content.strip()
+        text = text.strip()
         
-        return markdown_content
+        # Ensure it starts with a non-space character (grammar requirement)
+        if not text or text[0].isspace():
+            text = text.lstrip()
+            if not text:
+                text = "No content provided"
+        
+        # Remove any newlines and excessive whitespace
+        text = re.sub(r'\s+', ' ', text)
+        
+        # Remove markdown table formatting that causes RST parsing errors
+        # Remove pipe characters and table separators
+        text = re.sub(r'\|\s*', '', text)  # Remove leading pipes
+        text = re.sub(r'\s*\|', '', text)  # Remove trailing pipes
+        text = re.sub(r'[-|]+\s*', '', text)  # Remove table separator lines
+        
+        # Clean up any remaining pipe characters
+        text = text.replace('|', ' ')
+        
+        # Remove incomplete code blocks that cause RST parsing errors
+        # Remove any text that starts with backticks but doesn't have proper closing
+        text = re.sub(r'```[a-zA-Z]*\s*$', '', text)  # Remove incomplete opening code blocks
+        text = re.sub(r'^\s*```\s*$', '', text)  # Remove standalone closing backticks
+        
+        # Remove any remaining backticks that might cause issues
+        text = text.replace('```', '')
+        text = text.replace('`', '')
+        
+        # Remove excessive whitespace again
+        text = re.sub(r'\s+', ' ', text)
+        
+        # Final check: ensure the field is not empty
+        if not text.strip():
+            text = "No content provided"
+        
+        return text
     
-    def convert_html_to_strictdoc(self, html_file_path: str, output_dir: str) -> str:
+    def clean_text_for_multiline(self, text: str) -> str:
+        """Clean text for multiline fields according to StrictDoc grammar."""
+        # Remove leading/trailing whitespace
+        text = text.strip()
+        
+        # Ensure it starts with a non-space character
+        if not text or text[0].isspace():
+            text = text.lstrip()
+            if not text:
+                text = "No content provided"
+        
+        # Remove excessive whitespace but preserve structure
+        lines = text.split('\n')
+        cleaned_lines = []
+        for line in lines:
+            # Remove leading list markers and excessive indentation
+            line = re.sub(r'^[\s]*[-*+]\s*', '', line)
+            line = line.strip()
+            if line:
+                cleaned_lines.append(line)
+        
+        return '\n'.join(cleaned_lines)
+    
+    def extract_headings_from_html(self, html_content: str) -> List[Dict[str, Any]]:
+        """Extract headings and content from HTML using BeautifulSoup."""
+        soup = BeautifulSoup(html_content, 'html.parser')
+        headings = []
+        
+        # Find all heading tags (h1-h6)
+        for heading_tag in soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
+            heading_text = heading_tag.get_text(strip=True)
+            if not heading_text:
+                continue
+                
+            # Get content following this heading until the next heading
+            content = []
+            current = heading_tag.next_sibling
+            
+            while current and not (hasattr(current, 'name') and current.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
+                if hasattr(current, 'get_text'):
+                    text = current.get_text(strip=True)
+                    if text:
+                        content.append(text)
+                elif isinstance(current, str) and current.strip():
+                    content.append(current.strip())
+                current = current.next_sibling
+            
+            headings.append({
+                'title': heading_text,
+                'content': ' '.join(content) if content else heading_text,
+                'level': int(heading_tag.name[1])
+            })
+        
+        return headings
+    
+    def extract_headings_from_markdown(self, md_content: str) -> List[Dict[str, Any]]:
+        """Extract headings and content from Markdown."""
+        headings = []
+        lines = md_content.split('\n')
+        i = 0
+        
+        while i < len(lines):
+            line = lines[i].strip()
+            
+            # Check for heading patterns (# ## ### etc.)
+            heading_match = re.match(r'^(#{1,6})\s+(.+)$', line)
+            if heading_match:
+                level = len(heading_match.group(1))
+                title = heading_match.group(2).strip()
+                
+                # Collect content until next heading
+                content_lines = []
+                j = i + 1
+                while j < len(lines):
+                    next_line = lines[j].strip()
+                    if re.match(r'^(#{1,6})\s+', next_line):
+                        break
+                    if next_line:
+                        content_lines.append(next_line)
+                    j += 1
+                
+                content = ' '.join(content_lines) if content_lines else title
+                
+                headings.append({
+                    'title': title,
+                    'content': content,
+                    'level': level
+                })
+            
+            i += 1
+        
+        return headings
+    
+    def create_requirement_block(self, heading: Dict[str, Any], source_file: str) -> str:
+        """Create a properly formatted REQUIREMENT block following StrictDoc grammar."""
+        uid = f"REQ-{self.requirement_counter:03d}"
+        self.requirement_counter += 1
+        
+        # Clean the title for single-line field
+        title = self.clean_text_for_single_line(heading['title'])
+        
+        # Clean the content for single-line field (truncate if too long)
+        content = self.clean_text_for_single_line(heading['content'])
+        
+        # Truncate content if it's too long for a single line
+        if len(content) > 500:
+            content = content[:497] + "..."
+        
+        # Build the block as a list of lines to guarantee correct newlines
+        lines = [
+            "[REQUIREMENT]",
+            f"UID: {uid}",
+            "STATUS: Draft",
+            f"TITLE: {title}",
+            f"STATEMENT: {content}",
+            f"RATIONALE: Converted from {source_file} heading."
+        ]
+        return '\n'.join(lines)
+    
+    def convert_html_to_strictdoc(self, html_file: Path, output_file: Path) -> None:
         """Convert HTML file to StrictDoc format."""
-        with open(html_file_path, 'r', encoding='utf-8') as f:
+        print(f"Converting {html_file} to {output_file}")
+        
+        with open(html_file, 'r', encoding='utf-8') as f:
             html_content = f.read()
         
-        # Extract title
-        title = self.extract_title_from_html(html_content)
+        # Extract headings and content
+        headings = self.extract_headings_from_html(html_content)
         
-        # Convert to markdown
-        markdown_content = self.html_to_markdown(html_content)
-        markdown_content = self.clean_markdown(markdown_content)
+        if not headings:
+            print(f"Warning: No headings found in {html_file}")
+            return
         
-        # Create StrictDoc content
-        strictdoc_content = self.create_strictdoc_content(title, markdown_content)
+        # Create document header with grammar definition
+        doc_title = html_file.stem
+        strictdoc_content = f"""[DOCUMENT]
+TITLE: {doc_title}
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+"""
         
-        # Write to file
-        base_name = Path(html_file_path).stem
-        output_path = os.path.join(output_dir, f"{base_name}.sdoc")
+        # Add requirements for each heading
+        for heading in headings:
+            requirement_block = self.create_requirement_block(heading, html_file.name)
+            strictdoc_content += requirement_block + "\n\n"
         
-        with open(output_path, 'w', encoding='utf-8') as f:
+        # Write the StrictDoc file
+        with open(output_file, 'w', encoding='utf-8') as f:
             f.write(strictdoc_content)
         
-        return output_path
+        print(f"Created {output_file} with {len(headings)} requirements")
     
-    def create_strictdoc_content(self, title: str, content: str) -> str:
-        """Create StrictDoc formatted content."""
-        # Create a simple document with the content as free text
-        # For now, we'll create a basic document without sections
-        # since the section format is complex
-        
-        # Clean the title for UID
-        uid = title.upper().replace(' ', '_').replace('.', '_').replace('-', '_')
-        uid = re.sub(r'[^A-Z0-9_]', '', uid)
-        
-        # Create StrictDoc document
-        strictdoc_content = f"""[DOCUMENT]
-TITLE: MIL-STD-498: {title}
-UID: {uid}
-VERSION: 1.0
-DATE: 2024-12-19
-CLASSIFICATION: UNCLASSIFIED
-
-{content}"""
-        
-        return strictdoc_content
-
-
-class MarkdownToStrictDocConverter:
-    """Convert Markdown files to StrictDoc format."""
-    
-    def convert_markdown_to_strictdoc(self, markdown_file_path: str, output_dir: str) -> str:
+    def convert_markdown_to_strictdoc(self, md_file: Path, output_file: Path) -> None:
         """Convert Markdown file to StrictDoc format."""
-        with open(markdown_file_path, 'r', encoding='utf-8') as f:
-            markdown_content = f.read()
+        print(f"Converting {md_file} to {output_file}")
         
-        # Extract title from first heading
-        title = self.extract_title_from_markdown(markdown_content)
+        with open(md_file, 'r', encoding='utf-8') as f:
+            md_content = f.read()
         
-        # Clean content
-        cleaned_content = self.clean_markdown_content(markdown_content)
+        # Extract headings and content
+        headings = self.extract_headings_from_markdown(md_content)
         
-        # Create StrictDoc content
-        strictdoc_content = self.create_strictdoc_content(title, cleaned_content)
+        if not headings:
+            print(f"Warning: No headings found in {md_file}")
+            return
         
-        # Write to file
-        base_name = Path(markdown_file_path).stem.replace('.html', '')
-        output_path = os.path.join(output_dir, f"{base_name}.sdoc")
+        # Create document header with grammar definition
+        doc_title = md_file.stem
+        strictdoc_content = f"""[DOCUMENT]
+TITLE: {doc_title}
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+"""
         
-        with open(output_path, 'w', encoding='utf-8') as f:
+        # Add requirements for each heading
+        for heading in headings:
+            requirement_block = self.create_requirement_block(heading, md_file.name)
+            strictdoc_content += requirement_block + "\n\n"
+        
+        # Write the StrictDoc file
+        with open(output_file, 'w', encoding='utf-8') as f:
             f.write(strictdoc_content)
         
-        return output_path
+        print(f"Created {output_file} with {len(headings)} requirements")
     
-    def extract_title_from_markdown(self, content: str) -> str:
-        """Extract title from markdown content."""
-        lines = content.split('\n')
-        for line in lines:
-            if line.startswith('# '):
-                return line[2:].strip()
-        return "Untitled Document"
-    
-    def clean_markdown_content(self, content: str) -> str:
-        """Clean markdown content for StrictDoc."""
-        # Remove HTML comments
-        content = re.sub(r'<!--.*?-->', '', content, flags=re.DOTALL)
+    def convert_all_files(self) -> None:
+        """Convert all HTML and Markdown files to StrictDoc format."""
+        # Reset counter for each conversion run
+        self.requirement_counter = 1
         
-        # Clean up excessive whitespace
-        content = re.sub(r'\n\s*\n\s*\n', '\n\n', content)
+        # Convert HTML files
+        html_dir = Path("html")
+        strictdoc_html_dir = Path("strictdoc_html")
+        strictdoc_html_dir.mkdir(exist_ok=True)
         
-        # Remove leading/trailing whitespace
-        content = content.strip()
+        for html_file in html_dir.glob("*.html"):
+            output_file = strictdoc_html_dir / f"{html_file.stem}.html.sdoc"
+            self.convert_html_to_strictdoc(html_file, output_file)
         
-        return content
-    
-    def create_strictdoc_content(self, title: str, content: str) -> str:
-        """Create StrictDoc formatted content."""
-        # Clean the title for UID
-        uid = title.upper().replace(' ', '_').replace('.', '_').replace('-', '_')
-        uid = re.sub(r'[^A-Z0-9_]', '', uid)
+        # Reset counter for markdown conversion
+        self.requirement_counter = 1
         
-        # Create StrictDoc document
-        strictdoc_content = f"""[DOCUMENT]
-TITLE: MIL-STD-498: {title}
-UID: {uid}
-VERSION: 1.0
-DATE: 2024-12-19
-CLASSIFICATION: UNCLASSIFIED
-
-{content}"""
+        # Convert Markdown files
+        md_dir = Path("md")
+        strictdoc_md_dir = Path("strictdoc_md")
+        strictdoc_md_dir.mkdir(exist_ok=True)
         
-        return strictdoc_content
+        for md_file in md_dir.glob("*.md"):
+            output_file = strictdoc_md_dir / f"{md_file.stem}.md.sdoc"
+            self.convert_markdown_to_strictdoc(md_file, output_file)
 
 
 def get_document_mapping() -> Dict[str, str]:
-    """Get mapping of document abbreviations to full names."""
+    """Get mapping of document codes to full names."""
     return {
-        'SRS': 'Software Requirements Specification',
-        'SDD': 'Software Design Description',
-        'SDP': 'Software Development Plan',
-        'SSS': 'System/Subsystem Specification',
-        'STP': 'Software Test Plan',
-        'STR': 'Software Test Report',
-        'SIP': 'Software Installation Plan',
-        'STRP': 'Software Transition Plan',
-        'COM': 'Computer Operator Manual',
-        'CPM': 'Computer Program Manual',
-        'DBDD': 'Database Design Description',
-        'FSM': 'Firmware Support Manual',
-        'IDD': 'Interface Design Description',
-        'IRS': 'Interface Requirements Specification',
-        'OCD': 'Operational Concept Description',
-        'SCOM': 'Software Configuration Management Plan',
-        'SIOM': 'Software Input/Output Manual',
-        'SPS': 'Software Product Specification',
-        'SSDD': 'Software System Design Description',
-        'STD': 'Software Transition Description',
-        'SUM': 'Software User Manual',
-        'SVD': 'Software Version Description'
+        "COM": "Software Component Design Document (SCDD)",
+        "CPM": "Computer Program Manual (CPM)",
+        "DBDD": "Database Design Document (DBDD)",
+        "ICD": "Interface Control Document (ICD)",
+        "IDD": "Interface Design Document (IDD)",
+        "IRS": "Interface Requirements Specification (IRS)",
+        "PIDS": "Product Interface Design Specification (PIDS)",
+        "PRS": "Product Requirements Specification (PRS)",
+        "SDP": "Software Development Plan (SDP)",
+        "SIP": "Software Installation Plan (SIP)",
+        "SIVP": "Software Integration Test Plan (SIVP)",
+        "SIVR": "Software Integration Test Report (SIVR)",
+        "SMP": "Software Maintenance Plan (SMP)",
+        "SOO": "Statement of Objectives (SOO)",
+        "SOW": "Statement of Work (SOW)",
+        "SPMP": "Software Project Management Plan (SPMP)",
+        "SRS": "Software Requirements Specification (SRS)",
+        "SSDD": "Software System Design Document (SSDD)",
+        "STP": "Software Test Plan (STP)",
+        "STR": "Software Test Report (STR)",
+        "SVVP": "Software Verification and Validation Plan (SVVP)",
+        "SVVR": "Software Verification and Validation Report (SVVR)",
+        "SWS": "Software Specification (SWS)",
+        "SIOM": "Software Input/Output Manual (SIOM)",
+        "SUM": "Software User Manual (SUM)",
     }
 
 
 def main():
     """Main conversion function."""
-    # Output directories
-    html_output_dir = "strictdoc_html"
-    md_output_dir = "strictdoc_md"
-    os.makedirs(html_output_dir, exist_ok=True)
-    os.makedirs(md_output_dir, exist_ok=True)
-
-    # Get document mapping
-    doc_mapping = get_document_mapping()
-
-    # Initialize converters
-    html_converter = HTMLToStrictDocConverter()
-    md_converter = MarkdownToStrictDocConverter()
-
-    # Get all HTML files from html/
-    html_dir = "html"
-    html_files = [f for f in os.listdir(html_dir) if f.endswith('.html')]
-
-    # Get all Markdown files from md/
-    md_dir = "md"
-    md_files = [f for f in os.listdir(md_dir) if f.endswith('.md')]
-
-    converted_files = []
-
-    for html_file in sorted(html_files):
-        base_name = Path(html_file).stem
-        html_path = os.path.join(html_dir, html_file)
-        # Convert HTML to StrictDoc
-        try:
-            output_path = os.path.join(html_output_dir, f"{base_name}.html.sdoc")
-            strictdoc_content = html_converter.convert_html_to_strictdoc(html_path, html_output_dir)
-            # Rename output to .html.sdoc
-            os.rename(os.path.join(html_output_dir, f"{base_name}.sdoc"), output_path)
-            converted_files.append(output_path)
-            print(f"  ✓ Converted {html_file} -> {output_path}")
-        except Exception as e:
-            print(f"  ✗ Error converting {html_file}: {e}")
-
-    for md_file in sorted(md_files):
-        base_name = Path(md_file).stem.replace('.html', '')
-        md_path = os.path.join(md_dir, md_file)
-        # Convert Markdown to StrictDoc
-        try:
-            output_path = os.path.join(md_output_dir, f"{base_name}.md.sdoc")
-            strictdoc_content = md_converter.convert_markdown_to_strictdoc(md_path, md_output_dir)
-            # Rename output to .md.sdoc
-            os.rename(os.path.join(md_output_dir, f"{base_name}.sdoc"), output_path)
-            converted_files.append(output_path)
-            print(f"  ✓ Converted {md_file} -> {output_path}")
-        except Exception as e:
-            print(f"  ✗ Error converting {md_file}: {e}")
-
-    print(f"\nConversion complete! {len(converted_files)} files converted to {html_output_dir}/ and {md_output_dir}/")
-
+    converter = StrictDocConverter()
+    converter.convert_all_files()
+    print("Conversion completed!")
+    
     # Create index file
-    create_index_file(html_output_dir, md_output_dir, converted_files, doc_mapping)
-
-    return converted_files
+    create_index_file()
 
 
-def create_index_file(html_output_dir: str, md_output_dir: str, converted_files: List[str], doc_mapping: Dict[str, str]):
+def create_index_file():
     """Create an index file listing all converted documents."""
     index_content = """# MIL-STD-498 StrictDoc Documents Index
 
-This directory contains MIL-STD-498 document templates converted to StrictDoc format.
+This index lists all MIL-STD-498 documents converted to StrictDoc format.
 
-## Document Types
+## Document Categories
 
 """
-    html_files = [f for f in converted_files if f.startswith(html_output_dir)]
-    md_files = [f for f in converted_files if f.startswith(md_output_dir)]
-
-    index_content += "### HTML-based conversions (strictdoc_html):\n"
-    for file_path in sorted(html_files):
-        base_name = Path(file_path).stem.replace('.html', '')
-        full_name = doc_mapping.get(base_name, base_name)
-        index_content += f"- [{full_name}]({file_path})\n"
-
-    if md_files:
-        index_content += "\n### Markdown-based conversions (strictdoc_md):\n"
-        for file_path in sorted(md_files):
-            base_name = Path(file_path).stem.replace('.md', '')
+    
+    # Get document mapping
+    doc_mapping = get_document_mapping()
+    
+    # List HTML-based conversions
+    strictdoc_html_dir = Path("strictdoc_html")
+    if strictdoc_html_dir.exists():
+        index_content += "### HTML-based conversions (strictdoc_html):\n"
+        for sdoc_file in sorted(strictdoc_html_dir.glob("*.sdoc")):
+            base_name = sdoc_file.stem.replace('.html', '')
             full_name = doc_mapping.get(base_name, base_name)
-            index_content += f"- [{full_name} (MD)]({file_path})\n"
-
-    index_content += f"""
-
-## Conversion Information
-
-- **Total documents**: {len(converted_files)}
-- **HTML conversions**: {len(html_files)}
-- **Markdown conversions**: {len(md_files)}
-- **Conversion tool**: StrictDoc 0.9.1
-- **Source**: MIL-STD-498 templates from kkovacs.eu
-
-## Usage
-
-These .sdoc files can be used with StrictDoc to generate various output formats:
-
-```bash
-# Generate HTML
-strictdoc export --formats=html --output-dir=output/ .
-
-# Generate PDF
-strictdoc export --formats=pdf --output-dir=output/ .
-
-# Generate ReqIF
-strictdoc export --formats=reqif-spec --output-dir=output/ .
-```
-
-"""
-    index_path = os.path.join(".", "STRICTDOC_INDEX.md")
-    with open(index_path, 'w', encoding='utf-8') as f:
+            index_content += f"- [{full_name}]({sdoc_file})\n"
+        index_content += "\n"
+    
+    # List Markdown-based conversions
+    strictdoc_md_dir = Path("strictdoc_md")
+    if strictdoc_md_dir.exists():
+        index_content += "### Markdown-based conversions (strictdoc_md):\n"
+        for sdoc_file in sorted(strictdoc_md_dir.glob("*.sdoc")):
+            base_name = sdoc_file.stem.replace('.md', '')
+            full_name = doc_mapping.get(base_name, base_name)
+            index_content += f"- [{full_name} (MD)]({sdoc_file})\n"
+        index_content += "\n"
+    
+    # Write index file
+    with open("STRICTDOC_INDEX.md", 'w', encoding='utf-8') as f:
         f.write(index_content)
-    print(f"Created index file: {index_path}")
+    
+    print("Created STRICTDOC_INDEX.md")
 
 
 if __name__ == "__main__":

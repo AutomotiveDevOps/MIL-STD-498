@@ -1,0 +1,3 @@
+<div class="document">
+<p>This paragraph shall: Identify the software units that make up the CSCI. Each software unit shall be assigned a projectunique identifier. Note: A software unit is an element in the design of a CSCI; for example, a major subdivision of a CSCI, a component of that subdivision, a class, object, module, function, routine, or database. Software units may occur at different levels of a hierarchy and may consist of other software units. Software units in the design may or may not have a onetoone rel...</p>
+</div>

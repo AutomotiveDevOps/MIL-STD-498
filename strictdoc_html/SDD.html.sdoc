@@ -1,0 +1,142 @@
+[DOCUMENT]
+TITLE: SDD
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-389
+STATUS: Draft
+TITLE: 1. Scope.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-390
+STATUS: Draft
+TITLE: 1.1 Identification.
+STATEMENT: This paragraph shall contain a full identification of the system and the software to which this document applies, including, as applicable, identification number(s), title(s), abbreviation(s), version number(s), and release number(s).
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-391
+STATUS: Draft
+TITLE: 1.2 System overview.
+STATEMENT: This paragraph shall briefly state the purpose of the system and the software to which this document applies. It shall describe the general nature of the system and software; summarize the history of system development, operation, and maintenance; identify the project sponsor, acquirer, user, developer, and support agencies; identify current and planned operating sites; and list other relevant documents.
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-392
+STATUS: Draft
+TITLE: 1.3 Document overview.
+STATEMENT: This paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-393
+STATUS: Draft
+TITLE: 2. Referenced documents.
+STATEMENT: This section shall list the number, title, revision, and date of all documents referenced in this document. This section shall also identify the source for all documents not available through normal Government stocking activities.
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-394
+STATUS: Draft
+TITLE: 3. CSCIwide design decisions.
+STATEMENT: This section shall be divided into paragraphs as needed to present CSCIwide design decisions, that is, decisions about the CSCI's behavioral design (how it will behave, from a user's point of view, in meeting its requirements, ignoring internal implementation) and other decisions affecting the selection and design of the software units that make up the CSCI. If all such decisions are explicit in the CSCI requirements or are deferred to the design of the CSCI's software units, this section sha...
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-395
+STATUS: Draft
+TITLE: 4. CSCI architectural design.
+STATEMENT: This section shall be divided into the following paragraphs to describe the CSCI architectural design. If part or all of the design depends upon system states or modes, this dependency shall be indicated. If design information falls into more than one paragraph, it may be presented once and referenced from the other paragraphs. Design conventions needed to understand the design shall be presented or referenced.
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-396
+STATUS: Draft
+TITLE: 4.1 CSCI components.
+STATEMENT: This paragraph shall:Identify the software units that make up the CSCI. Each software unit shall be assigned a projectunique identifier.Note: A software unit is an element in the design of a CSCI; for example, a major subdivision of a CSCI, a component of that subdivision, a class, object, module, function, routine, or database. Software units may occur at different levels of a hierarchy and may consist of other software units. Software units in the design may or may not have a onetoone relat...
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-397
+STATUS: Draft
+TITLE: 4.2 Concept of execution.
+STATEMENT: This paragraph shall describe the concept of execution among the software units. It shall include diagrams and descriptions showing the dynamic relationship of the software units, that is, how they will interact during CSCI operation, including, as applicable, flow of execution control, data flow, dynamically controlled sequencing, state transition diagrams, timing diagrams, priorities among units, handling of interrupts, timing/sequencing relationships, exception handling, concurrent executi...
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-398
+STATUS: Draft
+TITLE: 4.3 Interface design.
+STATEMENT: This paragraph shall be divided into the following subparagraphs to describe the interface characteristics of the software units. It shall include both interfaces among the software units and their interfaces with external entities such as systems, configuration items, and users. If part or all of this information is contained in Interface Design Descriptions (IDDs), in section 5 of the SDD, or elsewhere, these sources may be referenced.
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-399
+STATUS: Draft
+TITLE: 4.3.1 Interface identification and diagrams.
+STATEMENT: This paragraph shall state the projectunique identifier assigned to each interface and shall identify the interfacing entities (software units, systems, configuration items, users, etc.) by name, number, version, and documentation references, as applicable. The identification shall state which entities have fixed interface characteristics (and therefore impose interface requirements on interfacing entities) and which are being developed or modified (thus having interface requirements imposed ...
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-400
+STATUS: Draft
+TITLE: 4.3.x (Project unique identifier of interface).
+STATEMENT: This paragraph (beginning with 4.3.2) shall identify an interface by project unique identifier, shall briefly identify the interfacing entities, and shall be divided into subparagraphs as needed to describe the interface characteristics of one or both of the interfacing entities. If a given interfacing entity is not covered by this SDD (for example, an external system) but its interface characteristics need to be mentioned to describe interfacing entities that are, these characteristics shall...
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-401
+STATUS: Draft
+TITLE: 5. CSCI detailed design.
+STATEMENT: This section shall be divided into the following paragraphs to describe each software unit of the CSCI. If part of all of the design depends upon system states or modes, this dependency shall be indicated. If design information falls into more than one paragraph, it may be presented once and referenced from the other paragraphs. Design conventions needed to understand the design shall be presented or referenced. Interface characteristics of software units may be described here, in Section 4, ...
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-402
+STATUS: Draft
+TITLE: 5.x (Projectunique identifier of a software unit, or designator of a group of software units).
+STATEMENT: This paragraph shall identify a software unit by projectunique identifier and shall describe the unit. The description shall include the following information, as applicable. Alternatively, this paragraph may designate a group of software units and identify and describe the software units in subparagraphs. Software units that contain other software units may reference the descriptions of those units rather than repeating information.Unit design decisions, if any, such as algorithms to be used...
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-403
+STATUS: Draft
+TITLE: 6. Requirements traceability.
+STATEMENT: This section shall contain:Traceability from each software unit identified in this SDD to the CSCI requirements allocated to it. (Alternatively, this traceability may be provided in 4.1.)Traceability from each CSCI requirement to the software units to which it is allocated.
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-404
+STATUS: Draft
+TITLE: 7. Notes.
+STATEMENT: This section shall contain any general information that aids in understanding this document (e.g., background information, glossary, rationale). This section shall include an alphabetical listing of all acronyms, abbreviations, and their meanings as used in this document and a list of any terms and definitions needed to understand this document.
+RATIONALE: Converted from SDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-405
+STATUS: Draft
+TITLE: A. Appendixes.
+STATEMENT: Appendixes may be used to provide information published separately for convenience in document maintenance (e.g., charts, classified data). As applicable, each appendix shall be referenced in the main body of the document where the data would normally have been provided. Appendixes may be bound as separate documents for ease in handling. Appendixes shall be lettered alphabetically (A, B, etc.).
+RATIONALE: Converted from SDD.html heading.
+

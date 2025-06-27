@@ -1,0 +1,317 @@
+[DOCUMENT]
+TITLE: SIOM
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-063
+STATUS: Draft
+TITLE: 1. Scope.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-064
+STATUS: Draft
+TITLE: 1.1 Identification.
+STATEMENT: This paragraph shall contain a full identification of the system and the software to which this document applies, including, as applicable, identification number(s), title(s), abbreviation(s), version number(s), and release number(s).
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-065
+STATUS: Draft
+TITLE: 1.2 System overview.
+STATEMENT: This paragraph shall briefly state the purpose of the system and the software to which this document applies. It shall describe the general nature of the system and software; summarize the history of system development, operation, and maintenance; identify the project sponsor, acquirer, user, developer, and support agencies; identify current and planned operating sites; and list other relevant documents.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-066
+STATUS: Draft
+TITLE: 1.3 Document overview.
+STATEMENT: This paragraph shall summarize the purpose and contents of this manual and shall describe any security or privacy considerations associated with its use.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-067
+STATUS: Draft
+TITLE: 2. Referenced documents.
+STATEMENT: This section shall list the number, title, revision, and date of all documents referenced in this manual. This section shall also identify the source for all documents not available through normal Government stocking activities.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-068
+STATUS: Draft
+TITLE: 3. Software summary.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-069
+STATUS: Draft
+TITLE: 3.1 Software application.
+STATEMENT: This paragraph shall provide a brief description of the intended uses of the software. Capabilities, operating improvements, and benefits expected from its use shall be described.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-070
+STATUS: Draft
+TITLE: 3.2 Software inventory.
+STATEMENT: This paragraph shall identify the software files, if any, including databases and data files, that the user is responsible for requesting in order to access the software described in this manual. The identification shall include security and privacy considerations for each file and identification of the software necessary to continue or resume operation in case of an emergency.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-071
+STATUS: Draft
+TITLE: 3.3 Software environment.
+STATEMENT: This paragraph shall identify the hardware, software, manual operations, and other resources needed to access and use the software. This paragraph shall be based on the assumption that the software is installed in a computer center or other centralized or networked environment and shall focus on the resources that a user must have to access and use the software in that environment. Included, as applicable, shall be identification of:Computer equipment that must be present, such as terminals, ...
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-072
+STATUS: Draft
+TITLE: 3.4 Software organization and overview of operation.
+STATEMENT: This paragraph shall provide a brief description of the organization and operation of the software from the user's point of view. The description shall include, as applicable:Logical components of the software, from the user's point of view, including databases and data files the user can access, Database Management Systems (DBMSs), and communications paths, and an overview of the purpose/operation of each componentPerformance characteristics that can be expected by the user, such as:Types, v...
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-073
+STATUS: Draft
+TITLE: 3.5 Contingencies and alternate states and modes of operation.
+STATEMENT: This paragraph shall explain the differences in what the user will be able to do with the software at times of emergency and in various states and modes of operation, if applicable.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-074
+STATUS: Draft
+TITLE: 3.6 Security and privacy.
+STATEMENT: This paragraph shall contain an overview of the security and privacy considerations associated with the software. A warning shall be included regarding making unauthorized copies of software or documents, if applicable.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-075
+STATUS: Draft
+TITLE: 3.7 Assistance and problem reporting.
+STATEMENT: This paragraph shall identify points of contact and procedures to be followed to obtain assistance and report problems encountered in using the software.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-076
+STATUS: Draft
+TITLE: 4. Using the software.
+STATEMENT: This section shall be divided into the following paragraphs to describe how to prepare inputs to, and interpret output from, the software. If the software has a query capability, this paragraph shall reference section 5 for a description of this capability. If the software can be accessed via terminal, this paragraph shall reference Sections 6 through n to describe terminal processing procedures. Safety precautions, marked by WARNING or CAUTION, shall be included where applicable.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-077
+STATUS: Draft
+TITLE: 4.1 Initiation procedures.
+STATEMENT: This paragraph shall contain the procedures that must be followed to initiate use of the software. Included may be information such as sample job request forms or sample control statements.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-078
+STATUS: Draft
+TITLE: 4.2 Description of inputs.
+STATEMENT: This paragraph shall be divided into the following subparagraphs.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-079
+STATUS: Draft
+TITLE: 4.2.1 Input conditions.
+STATEMENT: This paragraph shall describe the conditions to be observed in preparing each type or class of input to the software. The conditions shall include the following, as applicable:Reason for input, such as normal status report, need to update dataFrequency of input, such as monthly, on demandOrigin of input, such as the organization or station authorized to generate the inputMedium of input, such as magnetic tapeRelated inputs that are required to be entered at the same time as this inputOther ap...
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-080
+STATUS: Draft
+TITLE: 4.2.2 Input formats.
+STATEMENT: This paragraph shall illustrate the layout formats to be used in the preparation of inputs to the software and shall explain the information that may be entered in the various sections and lines of each format.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-081
+STATUS: Draft
+TITLE: 4.2.3 Composition rules.
+STATEMENT: This paragraph shall describe any rules and conventions that must be observed to prepare inputs. The rules of syntax, usage of punctuation, etc., shall be explained. The rules shall include the following, as applicable:Input transaction length, such as 100 characters maximumFormat conventions, such as all input items must be leftjustifiedLabeling, such as usage of identifiers to denote major data sets to the softwareSequencing, such as order and placement of items in the inputPunctuation, suc...
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-082
+STATUS: Draft
+TITLE: 4.2.4 Input vocabulary.
+STATEMENT: This paragraph shall explain the legal character combinations or codes that must be used to prepare inputs. An appendix may be provided containing an ordered listing of these codes.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-083
+STATUS: Draft
+TITLE: 4.2.5 Sample inputs.
+STATEMENT: This paragraph shall provide examples that illustrate and explain each type or class of input acceptable by the software. Included shall be information on the following types of inputs, as applicable:Headers denoting the start of inputText or body of the inputTrailers denoting the end of inputPortions of the input that may be omittedPortions of the input that may be repeated
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-084
+STATUS: Draft
+TITLE: 4.3 Description of outputs.
+STATEMENT: This paragraph shall be divided into the following subparagraphs.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-085
+STATUS: Draft
+TITLE: 4.3.1 General description.
+STATEMENT: This paragraph shall provide the following information, as applicable, for each type or class of output:Reasons why the output is generatedFrequency of the output, such as monthly, on demandAny modifications or variations of the basic output that are availableMedia, such as printout, display screen, tapeLocation where the output will appear, such as in the computer area or remotelyAny additional characteristics, such as priority, security and privacy considerations, associated outputs that co...
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-086
+STATUS: Draft
+TITLE: 4.3.2 Output formats.
+STATEMENT: This paragraph shall illustrate and explain the layout of each type or class of output from the software. The following aspects shall be explained, as applicable:Security and privacy markingsData that may appear in headersInformation that may appear in the body or text of the output, including column headings and subsets or sections in the output formatData that may appear in trailersAdditional characteristics, such as the meaning of special symbols
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-087
+STATUS: Draft
+TITLE: 4.3.3 Sample outputs.
+STATEMENT: This paragraph shall provide illustrations of each type or class of output from the software. A description of each sample shall be provided, including, as applicable:Meaning and use of each column, entry, etc.Source, such as extracted from database, calculatedCharacteristics, such as when omitted, range of values, unit of measure
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-088
+STATUS: Draft
+TITLE: 4.3.4 Output vocabulary.
+STATEMENT: This paragraph shall describe any codes or abbreviations that appear in the output that differ from those used in the input described in paragraph 4.2.4.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-089
+STATUS: Draft
+TITLE: 4.4 Use of outputs.
+STATEMENT: This paragraph shall explain the use of the output by the operational area or activity that receives it.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-090
+STATUS: Draft
+TITLE: 4.5 Recovery and error correction procedures.
+STATEMENT: This paragraph shall list the error codes generated by the software, give their meanings, and describe the corrective actions to be taken by the user. Also included shall be the procedures to be followed by the user with respect to restart, recovery, and continuity of operations in the event of emergencies.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-091
+STATUS: Draft
+TITLE: 4.6 Communications diagnostics.
+STATEMENT: This paragraph shall describe the diagnostic procedures available to the user for validating communications and for identifying and classifying problems.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-092
+STATUS: Draft
+TITLE: 5. Query procedures.
+STATEMENT: This section shall be prepared for software with a query capability. It shall be divided into the following paragraphs.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-093
+STATUS: Draft
+TITLE: 5.1 Database/data file format.
+STATEMENT: This paragraph shall provide a user's view of the format and content of each database and data file that can be queried. Figure 1 provides an example. Information such as the following shall be provided for each data element, as applicable:Data element nameSynonymous namesDefinitionFormatRange and enumeration of valuesUnit of measurementData item names, abbreviations, and codes
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-094
+STATUS: Draft
+TITLE: 5.2 Query capabilities.
+STATEMENT: This paragraph shall identify and describe the preprogrammed and ad hoc query capabilities provided by the software. An example of preprogrammed queries is shown in Figure 2.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-095
+STATUS: Draft
+TITLE: 5.3 Query preparation.
+STATEMENT: This paragraph shall provide instructions for preparing queries. Figure 3 shows an example of the format for a preprogrammed query. Figure 4 shows an example of a query statement.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-096
+STATUS: Draft
+TITLE: 5.4 Control instructions.
+STATEMENT: This paragraph shall provide instructions for the sequencing of runs and other actions necessary to extract responses to query requests. These instructions shall include control statements that may be required by the computer system or software.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-097
+STATUS: Draft
+TITLE: 6. User terminal processing procedures.
+STATEMENT: This section shall be divided into the following paragraphs to provide the user with information on the use of terminals to accomplish processing. If the procedures are complicated or extensive, Sections 7 through n may be added in the same paragraph structure as this section and with titles meaningful to the sections selected. The organization of the document will depend on the characteristics of the software being documented. For example, sections might be based on the organizations in whic...
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-098
+STATUS: Draft
+TITLE: 6.1 Available capabilities.
+STATEMENT: This paragraph shall describe in general terms the capabilities for retrieval, display, and update of data through terminal operations.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-099
+STATUS: Draft
+TITLE: 6.2 Access procedures.
+STATEMENT: This paragraph shall present the sequence of steps and any applicable rules pertaining to accessing the software to initiate software operations.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-100
+STATUS: Draft
+TITLE: 6.3 Display, updates, and retrieval procedures.
+STATEMENT: This paragraph shall be divided into subparagraphs to provide the stepbystep procedures necessary to produce the displays, updates, and retrievals that are available through the use of a terminal. Each procedure shall include the name of the operation, input formats, and sample responses, as applicable.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-101
+STATUS: Draft
+TITLE: 6.4 Recovery and error correction procedures.
+STATEMENT: This paragraph shall identify error messages that may be displayed and shall indicate their meanings and any corrective actions that should be taken. Also included shall be any procedures to be followed by the user with respect to restart, recovery, and continuity of operations in the event of emergencies.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-102
+STATUS: Draft
+TITLE: 6.5 Termination procedures.
+STATEMENT: This paragraph shall present the sequence of steps necessary to terminate the processing.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-103
+STATUS: Draft
+TITLE: 7. Notes.
+STATEMENT: This section shall contain any general information that aids in understanding this document (e.g., background information, glossary, rationale). This section shall include an alphabetical listing of all acronyms, abbreviations, and their meanings as used in this document and a list of terms and definitions needed to understand this document. If section 6 has been expanded into section(s) 7,..., this section shall be numbered as the next section following section n.
+RATIONALE: Converted from SIOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-104
+STATUS: Draft
+TITLE: A. Appendixes.
+STATEMENT: Appendixes may be used to provide information published separately for convenience in document maintenance (e.g., charts, classified data). As applicable, each appendix shall be referenced in the main body of the document where the data would normally have been provided. Appendixes may be bound as separate documents for ease in handling. Appendixes shall be lettered alphabetically (A, B, etc.).
+RATIONALE: Converted from SIOM.html heading.
+

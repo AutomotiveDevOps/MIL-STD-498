@@ -1,0 +1,3 @@
+<div class="document">
+<p>This section shall be divided into paragraphs as needed to present databasewide design decisions, that is, decisions about the database's behavioral design (how it will behave, from a user's point of view, in meeting its requirements, ignoring internal implementation) and other decisions affecting further design of the database. If all such decisions are explicit in the system or CSCI requirements, this section shall so state. Design decisions that respond to requirements designated critical,...</p>
+</div>

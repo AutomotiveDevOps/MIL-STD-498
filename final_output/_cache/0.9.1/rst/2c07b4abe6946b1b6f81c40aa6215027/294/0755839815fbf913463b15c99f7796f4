@@ -1,0 +1,5 @@
+<div class="document">
+<ul class="simple">
+<li><strong>22 HTML files</strong>: Original MIL-STD-498 document templates - <strong>22 Markdown files</strong>: Converted versions of the HTML files using Pandoc - <strong>44 StrictDoc files</strong>: MIL-STD-498 documents converted to StrictDoc format - <strong>GitHub Actions workflow</strong>: Automated documentation generation and deployment</li>
+</ul>
+</div>

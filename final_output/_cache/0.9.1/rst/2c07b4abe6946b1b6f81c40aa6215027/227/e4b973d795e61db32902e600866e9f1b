@@ -1,0 +1,3 @@
+<div class="document">
+<p><strong>Trigger</strong>: Push to <cite>main</cite>/<cite>master</cite> branch or manual dispatch <strong>Build</strong>: Uses Python 3.12 with <cite>uv</cite> package manager <strong>Dependencies</strong>: StrictDoc, BeautifulSoup4, html2text <strong>Output</strong>: Complete documentation site with navigation</p>
+</div>

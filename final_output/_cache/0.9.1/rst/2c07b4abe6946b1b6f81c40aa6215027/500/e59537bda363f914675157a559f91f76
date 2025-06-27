@@ -1,0 +1,3 @@
+<div class="document">
+<p>For each interface identified in 1.1, this paragraph shall state the project-unique identifier assigned to the interface and shall identify the interfacing entities (systems, configuration items, users, etc.) by name, number, version, and documentation references, as applicable. The identification shall state which entities have fixed interface characteristics (and therefore impose interface requirements on interfacing entities) and which are being developed or modified (thus having interface...</p>
+</div>

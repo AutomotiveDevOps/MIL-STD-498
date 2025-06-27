@@ -1,0 +1,114 @@
+[DOCUMENT]
+TITLE: DBDD
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-478
+STATUS: Draft
+TITLE: 1. Scope.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-479
+STATUS: Draft
+TITLE: 1.1 Identification.
+STATEMENT: This paragraph shall contain a full identification of the database to which this document applies, including, as applicable, identification number(s), title(s), abbreviation(s), version number(s), and release number(s).
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-480
+STATUS: Draft
+TITLE: 1.2 Database overview.
+STATEMENT: This paragraph shall briefly state the purpose of the database to which this document applies. It shall describe the general nature of the database; summarize the history of its development, use, and maintenance; identify the project sponsor, acquirer, user, developer, and support agencies; identify current and planned operating sites; and list other relevant documents.
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-481
+STATUS: Draft
+TITLE: 1.3 Document overview.
+STATEMENT: This paragraph shall summarize the purpose and contents of this document and shall describe any security or privacy considerations associated with its use.
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-482
+STATUS: Draft
+TITLE: 2. Referenced documents.
+STATEMENT: This section shall list the number, title, revision, and date of all documents referenced in this manual. This section shall also identify the source for all documents not available through normal Government stocking activities.
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-483
+STATUS: Draft
+TITLE: 3. Databasewide design decisions.
+STATEMENT: This section shall be divided into paragraphs as needed to present databasewide design decisions, that is, decisions about the database's behavioral design (how it will behave, from a user's point of view, in meeting its requirements, ignoring internal implementation) and other decisions affecting further design of the database. If all such decisions are explicit in the system or CSCI requirements, this section shall so state. Design decisions that respond to requirements designated critical,...
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-484
+STATUS: Draft
+TITLE: 4. Detailed design of the database.
+STATEMENT: This section shall be divided into paragraphs as needed to describe the detailed design of the database. The number of levels of design and the names of those levels shall be based on the design methodology used. Examples of database design levels include conceptual, internal, logical, and physical. If part or all of the design depends upon system states or modes, this dependency shall be indicated. Design conventions needed to understand the design shall be presented or referenced.Note: This...
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-485
+STATUS: Draft
+TITLE: 4.x (Name of database design level).
+STATEMENT: This paragraph shall identify a database design level and shall describe the data elements and data element assemblies of the database in the terminology of the selected design method. The information shall include the following, as applicable, presented in any order suited to the information to be provided:Characteristics of individual data elements in the database design, such as:Names/identifiersProjectunique identifierNontechnical (naturallanguage) nameDoD standard data element nameTechni...
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-486
+STATUS: Draft
+TITLE: 5. Detailed design of software units used for database access or manipulation.
+STATEMENT: This section shall be divided into the following paragraphs to describe each software unit used for database access or manipulation. If part or all of this information is provided elsewhere, such as in a Software Design Description (SDD), the SDD for a customized DBMS, or the user manual of a commercial DBMS, that information may be referenced rather than repeated here. If part or all of the design depends upon system states or modes, this dependency shall be indicated. If design information ...
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-487
+STATUS: Draft
+TITLE: 5.x (Projectunique identifier of a software unit, or designator for a group of software units).
+STATEMENT: This paragraph shall identify a software unit by projectunique identifier and shall describe the unit. The description shall include the following information, as applicable. Alternatively, this paragraph may designate a group of software units and identify and describe the software units in subparagraphs. Software units that contain other software units may reference the descriptions of those units rather than repeating information.Unit design decisions, if any, such as algorithms to be used...
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-488
+STATUS: Draft
+TITLE: 6. Requirements traceability.
+STATEMENT: This section shall contain:Traceability from each database or other software unit covered by this DBDD to the system or CSCI requirements it addresses.Traceability from each system or CSCI requirement that has been allocated to a database or other software unit covered in this DBDD to the database or other software units that address it.
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-489
+STATUS: Draft
+TITLE: 7. Notes.
+STATEMENT: This section shall contain any general information that aids in understanding this document (e.g., background information, glossary, rationale). This section shall include an alphabetical listing of all acronyms, abbreviations, and their meanings as used in this document and a list of any terms and definitions needed to understand this document.
+RATIONALE: Converted from DBDD.html heading.
+
+[REQUIREMENT]
+UID: REQ-490
+STATUS: Draft
+TITLE: A. Appendixes.
+STATEMENT: Appendixes may be used to provide information published separately for convenience in document maintenance (e.g., charts, classified data). As applicable, each appendix shall be referenced in the main body of the document where the data would normally have been provided. Appendixes may be bound as separate documents for ease in handling. Appendixes shall be lettered alphabetically (A, B, etc.).
+RATIONALE: Converted from DBDD.html heading.
+

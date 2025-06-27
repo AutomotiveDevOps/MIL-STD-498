@@ -1,0 +1,3 @@
+<div class="document">
+<p>cd strictdoc_documents uv run strictdoc export formats=html outputdir=../docs/ .</p>
+</div>

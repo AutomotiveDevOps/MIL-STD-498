@@ -1,0 +1,56 @@
+# MIL-STD-498 StrictDoc Documents Index
+
+This index lists all MIL-STD-498 documents converted to StrictDoc format.
+
+## Document Categories
+
+### HTML-based conversions (strictdoc_html):
+- [Software Component Design Document (SCDD)](strictdoc_html/COM.html.sdoc)
+- [Computer Program Manual (CPM)](strictdoc_html/CPM.html.sdoc)
+- [Database Design Document (DBDD)](strictdoc_html/DBDD.html.sdoc)
+- [FSM](strictdoc_html/FSM.html.sdoc)
+- [Interface Design Document (IDD)](strictdoc_html/IDD.html.sdoc)
+- [Interface Requirements Specification (IRS)](strictdoc_html/IRS.html.sdoc)
+- [OCD](strictdoc_html/OCD.html.sdoc)
+- [SCOM](strictdoc_html/SCOM.html.sdoc)
+- [SDD](strictdoc_html/SDD.html.sdoc)
+- [Software Development Plan (SDP)](strictdoc_html/SDP.html.sdoc)
+- [Software Input/Output Manual (SIOM)](strictdoc_html/SIOM.html.sdoc)
+- [Software Installation Plan (SIP)](strictdoc_html/SIP.html.sdoc)
+- [SPS](strictdoc_html/SPS.html.sdoc)
+- [Software Requirements Specification (SRS)](strictdoc_html/SRS.html.sdoc)
+- [Software System Design Document (SSDD)](strictdoc_html/SSDD.html.sdoc)
+- [SSS](strictdoc_html/SSS.html.sdoc)
+- [STD](strictdoc_html/STD.html.sdoc)
+- [Software Test Plan (STP)](strictdoc_html/STP.html.sdoc)
+- [Software Test Report (STR)](strictdoc_html/STR.html.sdoc)
+- [STRP](strictdoc_html/STRP.html.sdoc)
+- [Software User Manual (SUM)](strictdoc_html/SUM.html.sdoc)
+- [SVD](strictdoc_html/SVD.html.sdoc)
+
+### Markdown-based conversions (strictdoc_md):
+- [COM.html (MD)](strictdoc_md/COM.html.md.sdoc)
+- [CPM.html (MD)](strictdoc_md/CPM.html.md.sdoc)
+- [DBDD.html (MD)](strictdoc_md/DBDD.html.md.sdoc)
+- [FSM.html (MD)](strictdoc_md/FSM.html.md.sdoc)
+- [IDD.html (MD)](strictdoc_md/IDD.html.md.sdoc)
+- [IRS.html (MD)](strictdoc_md/IRS.html.md.sdoc)
+- [OCD.html (MD)](strictdoc_md/OCD.html.md.sdoc)
+- [README (MD)](strictdoc_md/README.md.sdoc)
+- [REPOSITORY_ANALYSIS (MD)](strictdoc_md/REPOSITORY_ANALYSIS.md.sdoc)
+- [SCOM.html (MD)](strictdoc_md/SCOM.html.md.sdoc)
+- [SDD.html (MD)](strictdoc_md/SDD.html.md.sdoc)
+- [SDP.html (MD)](strictdoc_md/SDP.html.md.sdoc)
+- [SIOM.html (MD)](strictdoc_md/SIOM.html.md.sdoc)
+- [SIP.html (MD)](strictdoc_md/SIP.html.md.sdoc)
+- [SPS.html (MD)](strictdoc_md/SPS.html.md.sdoc)
+- [SRS.html (MD)](strictdoc_md/SRS.html.md.sdoc)
+- [SSDD.html (MD)](strictdoc_md/SSDD.html.md.sdoc)
+- [SSS.html (MD)](strictdoc_md/SSS.html.md.sdoc)
+- [STD.html (MD)](strictdoc_md/STD.html.md.sdoc)
+- [STP.html (MD)](strictdoc_md/STP.html.md.sdoc)
+- [STR.html (MD)](strictdoc_md/STR.html.md.sdoc)
+- [STRP.html (MD)](strictdoc_md/STRP.html.md.sdoc)
+- [SUM.html (MD)](strictdoc_md/SUM.html.md.sdoc)
+- [SVD.html (MD)](strictdoc_md/SVD.html.md.sdoc)
+

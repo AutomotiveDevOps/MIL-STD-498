@@ -1,0 +1,3 @@
+<div class="document">
+<p>For system-level interfacing entities, this paragraph does not apply. For each subsystem- or lower-level interfacing entity covered by this IRS, this paragraph shall contain: Traceability from each requirement imposed on the entity in this specification to the system (or subsystem, if applicable) requirements it addresses. (Alternatively, this traceability may be provided by annotating each requirement in Section 3.) Note: Each level of system refinement may result in requirements not directl...</p>
+</div>

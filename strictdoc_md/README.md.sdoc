@@ -1,0 +1,184 @@
+[DOCUMENT]
+TITLE: README
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-073
+STATUS: Draft
+TITLE: MILSTD498 Documentation
+STATEMENT: This repository contains MILSTD498 (Military Standard 498) document templates in multiple formats. MILSTD498 is a United States military standard that defines the software development and documentation process for software systems.
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-074
+STATUS: Draft
+TITLE: 📚 Documentation
+STATEMENT: 📚 Documentation
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-075
+STATUS: Draft
+TITLE: 🌐 Live Documentation Site
+STATEMENT: The documentation is automatically generated and published to GitHub Pages: **https://automotivedevops.github.io/MILSTD498/** The site includes: **Original MILSTD498 HTML Files**: All 22 original HTML templates **StrictDoc Generated HTML**: HTML files generated from StrictDoc (.sdoc) templates **Comprehensive Index**: Organized navigation with descriptions for each document type
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-076
+STATUS: Draft
+TITLE: 📁 Repository Contents
+STATEMENT: **22 HTML files**: Original MILSTD498 document templates **22 Markdown files**: Converted versions of the HTML files using Pandoc **44 StrictDoc files**: MILSTD498 documents converted to StrictDoc format **GitHub Actions workflow**: Automated documentation generation and deployment
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-077
+STATUS: Draft
+TITLE: 📋 Document Types
+STATEMENT: Abbreviation Document Type Original HTML Markdown StrictDoc SRS Software Requirements Specification ✅ ✅ ✅ SDD Software Design Description ✅ ✅ ✅ SDP Software Development Plan ✅ ✅ ✅ SSS System/Subsystem Specification ✅ ✅ ✅ STP Software Test Plan ✅ ✅ ✅ STR Software Test Report ✅ ✅ ✅ SIP Software Installation Plan ✅ ✅ ✅ STRP Software Transition Plan ✅ ✅ ✅ COM Computer Operator Manual ✅ ✅ ✅ CPM Computer Program Manual ✅ ✅ ✅ DBDD Database Design Description ✅ ✅ ✅ FSM Firmware Support Manual ✅ ✅ ✅ I...
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-078
+STATUS: Draft
+TITLE: 🚀 GitHub Pages Deployment
+STATEMENT: This repository uses GitHub Actions to automatically: 1. Generate HTML documentation from StrictDoc files 2. Copy original MILSTD498 HTML files 3. Create a comprehensive index page 4. Deploy everything to GitHub Pages
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-079
+STATUS: Draft
+TITLE: Workflow Details
+STATEMENT: **Trigger**: Push to main/master branch or manual dispatch **Build**: Uses Python 3.12 with uv package manager **Dependencies**: StrictDoc, BeautifulSoup4, html2text **Output**: Complete documentation site with navigation
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-080
+STATUS: Draft
+TITLE: 🛠️ Local Development
+STATEMENT: 🛠️ Local Development
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-081
+STATUS: Draft
+TITLE: Prerequisites
+STATEMENT: Python 3.12+ uv package manager
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-082
+STATUS: Draft
+TITLE: Setup
+STATEMENT: No content provided
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-083
+STATUS: Draft
+TITLE: Clone the repository
+STATEMENT: git clone https://github.com/AutomotiveDevOps/MILSTD498.git cd MILSTD498
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-084
+STATUS: Draft
+TITLE: Create virtual environment and install dependencies
+STATEMENT: uv venv uv pip install strictdoc beautifulsoup4 html2text
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-085
+STATUS: Draft
+TITLE: Generate HTML documentation locally
+STATEMENT: cd strictdoc_documents uv run strictdoc export formats=html outputdir=../docs/ . 
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-086
+STATUS: Draft
+TITLE: 📖 Usage
+STATEMENT: 📖 Usage
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-087
+STATUS: Draft
+TITLE: Viewing Documentation
+STATEMENT: **Online**: Visit https://automotivedevops.github.io/MILSTD498/ **Local**: Open docs/index.html in your browser after generation
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-088
+STATUS: Draft
+TITLE: Using StrictDoc Files
+STATEMENT: The StrictDoc (.sdoc) files can be used with StrictDoc to generate various output formats: 
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-089
+STATUS: Draft
+TITLE: Generate HTML
+STATEMENT: strictdoc export formats=html outputdir=output/ .
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-090
+STATUS: Draft
+TITLE: Generate PDF
+STATEMENT: strictdoc export formats=pdf outputdir=output/ .
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-091
+STATUS: Draft
+TITLE: Generate ReqIF
+STATEMENT: strictdoc export formats=reqifspec outputdir=output/ . 
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-092
+STATUS: Draft
+TITLE: 🔄 Automation
+STATEMENT: The repository includes automated workflows for: **Documentation Generation**: Converts StrictDoc files to HTML **GitHub Pages Deployment**: Publishes documentation automatically **Index Generation**: Creates comprehensive navigation
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-093
+STATUS: Draft
+TITLE: 📄 License
+STATEMENT: This project contains MILSTD498 templates. Please refer to the original MILSTD498 standard for licensing information.
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-094
+STATUS: Draft
+TITLE: 🤝 Contributing
+STATEMENT: Contributions are welcome! Please feel free to submit a Pull Request.
+RATIONALE: Converted from README.md heading.
+
+[REQUIREMENT]
+UID: REQ-095
+STATUS: Draft
+TITLE: 📞 Support
+STATEMENT: For questions or issues, please open an issue on GitHub.
+RATIONALE: Converted from README.md heading.
+

@@ -1,0 +1,3 @@
+<div class="document">
+<p>This section shall be divided into paragraphs as needed to present CSCIwide design decisions, that is, decisions about the CSCI's behavioral design (how it will behave, from a user's point of view, in meeting its requirements, ignoring internal implementation) and other decisions affecting the selection and design of the software units that make up the CSCI. If all such decisions are explicit in the CSCI requirements or are deferred to the design of the CSCI's software units, this section sha...</p>
+</div>

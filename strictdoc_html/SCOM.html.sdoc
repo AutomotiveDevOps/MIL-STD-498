@@ -1,0 +1,226 @@
+[DOCUMENT]
+TITLE: SCOM
+
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+
+[REQUIREMENT]
+UID: REQ-241
+STATUS: Draft
+TITLE: 1. Scope.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-242
+STATUS: Draft
+TITLE: 1.1 Identification.
+STATEMENT: This paragraph shall contain a full identification of the system and software to which this document applies, including, as applicable, identification number(s), title(s), abbreviation(s), version number(s), and release number(s).
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-243
+STATUS: Draft
+TITLE: 1.2 System overview.
+STATEMENT: This paragraph shall briefly state the purpose of the system and the software to which this document applies. It shall describe the general nature of the system and software; summarize the history of system development, operation, and maintenance; identify the project sponsor, acquirer, user, developer, and support agencies; identify current and planned operating sites; and list other relevant documents.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-244
+STATUS: Draft
+TITLE: 1.3 Document overview.
+STATEMENT: This paragraph shall summarize the purpose and contents of this manual and shall describe any security or privacy considerations associated with its use.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-245
+STATUS: Draft
+TITLE: 2. Referenced documents.
+STATEMENT: This section shall list the number, title, revision, and date of all documents referenced in this manual. This section shall also identify the source for all documents not available through normal Government stocking activities.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-246
+STATUS: Draft
+TITLE: 3. Software summary.
+STATEMENT: This section shall be divided into the following paragraphs.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-247
+STATUS: Draft
+TITLE: 3.1 Software application.
+STATEMENT: This paragraph shall provide a brief description of the intended uses of the software. Capabilities, operating improvements, and benefits expected from its use shall be described.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-248
+STATUS: Draft
+TITLE: 3.2 Software inventory.
+STATEMENT: This paragraph shall identify all software files, including databases and data files, that must be installed for the software to operate. The identification shall include security and privacy considerations for each file and identification of the software necessary to continue or resume operation in case of an emergency.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-249
+STATUS: Draft
+TITLE: 3.3 Software environment.
+STATEMENT: This paragraph shall identify the hardware, software, manual operations, and other resources needed to install and operate the software. Included, as applicable, shall be identification of:Computer equipment that must be present, including amount of memory needed, amount of auxiliary storage needed, and peripheral equipment such as terminals, printers, and other input/output devicesCommunications equipment that must be presentOther software that must be present, such as networking software, o...
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-250
+STATUS: Draft
+TITLE: 3.4 Software organization and overview of operation.
+STATEMENT: This paragraph shall provide a brief description of the organization and operation of the software from the operator's point of view. The description shall include, as applicable:Logical components of the software, from the operator's point of view, and an overview of the purpose/operation of each componentTypes of inputs/access that can be made to the software and the software's response to each typeThe reports and other outputs that are produced by the software, including security and priva...
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-251
+STATUS: Draft
+TITLE: 3.5 Contingencies and alternate states and modes of operation.
+STATEMENT: This paragraph shall explain the differences in software operation at times of emergency and in various states and modes of operation, if applicable.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-252
+STATUS: Draft
+TITLE: 3.6 Security and privacy.
+STATEMENT: This paragraph shall contain an overview of the security and privacy considerations associated with the software. A warning shall be included regarding making unauthorized copies of software or documents, if applicable.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-253
+STATUS: Draft
+TITLE: 3.7 Assistance and problem reporting.
+STATEMENT: This paragraph shall identify points of contact and procedures to be followed to obtain assistance and report problems encountered in operating the software.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-254
+STATUS: Draft
+TITLE: 4. Installation and setup.
+STATEMENT: This paragraph shall describe any procedures that the operator must perform to install the software on the equipment, to configure the software, to delete or overwrite former files or data, and to enter parameters for software operation. Safety precautions, marked by WARNING or CAUTION, shall be included where applicable.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-255
+STATUS: Draft
+TITLE: 5. Description of runs.
+STATEMENT: This section shall be divided into the following paragraphs to provide a description of the runs to be performed. Safety precautions, marked by WARNING or CAUTION, shall be included where applicable.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-256
+STATUS: Draft
+TITLE: 5.1 Run inventory.
+STATEMENT: This paragraph shall provide a list of the runs to be performed, identifying the software and the jobs that make up each run. It shall include a brief summary of the purpose of each run and shall relate the list to the run descriptions included in the remainder of this section.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-257
+STATUS: Draft
+TITLE: 5.2 Phasing.
+STATEMENT: This paragraph shall describe acceptable phasing of the software into a logical series of operations. A run may be phased to permit manual or semiautomatic checking of intermediate results, to provide the user with intermediate results for other purposes, or to permit a logical break if higher priority jobs are submitted. An example of the minimum division for most systems would be edit, file update, and report preparation.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-258
+STATUS: Draft
+TITLE: 5.3 Diagnostic procedures.
+STATEMENT: This paragraph shall provide the setup and execution procedures for any software diagnostics. Included shall be procedures for validation and trouble shooting. All parameters (both input and output), codes, and range values for diagnostic software shall be explained.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-259
+STATUS: Draft
+TITLE: 5.4 Error messages.
+STATEMENT: This paragraph shall list all error messages output by the software, along with the meaning and corresponding correction procedure for each message.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-260
+STATUS: Draft
+TITLE: 5.5 Description of each run.
+STATEMENT: This paragraph shall be divided into the following subparagraphs.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-261
+STATUS: Draft
+TITLE: 5.5.x Run description for (run name or identifier).
+STATEMENT: This paragraph shall identify a run and shall be divided into the following subparagraphs to describe the run.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-262
+STATUS: Draft
+TITLE: 5.5.x.1 Control inputs.
+STATEMENT: This paragraph shall provide a listing of the run stream of job control statements needed to initiate the run.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-263
+STATUS: Draft
+TITLE: 5.5.x.2 Run management information.
+STATEMENT: This paragraph shall provide the information needed to manage the run including, as applicable:Peripheral and resource requirementsSecurity and privacy considerationsMethod of initiation, such as on request, after another run, or at a predetermined timeEstimated run timeRequired turnaround timeMessages and responsesProcedures for taking check pointsWaivers from operational standards
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-264
+STATUS: Draft
+TITLE: 5.5.x.3 Inputoutput files.
+STATEMENT: This paragraph shall provide information about the files and databases that serve as input to or that are created or updated by the run. Included for each shall be information such as name, security and privacy, recording medium, retention schedule, and disposition.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-265
+STATUS: Draft
+TITLE: 5.5.x.4 Output reports.
+STATEMENT: This paragraph shall provide information about the reports that are produced during the run. Included for each report shall be the following information, as applicable: report identifier, product control number, report control symbol, title, security and privacy, media (e.g., hard copy, magnetic tape), volume of report, number of copies, and distribution of copies.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-266
+STATUS: Draft
+TITLE: 5.5.x.5 Reproduced output reports.
+STATEMENT: This paragraph shall provide information about computergenerated reports that are subsequently reproduced by other means. Included for each report shall be information such as report identification, security and privacy, reproduction technique, paper size, binding method, number of copies, and distribution of copies.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-267
+STATUS: Draft
+TITLE: 5.5.x.6 Procedures for restart/recovery and continuity of operations.
+STATEMENT: This paragraph shall provide procedures to be followed by operator personnel concerning restart/recovery in the event of a system failure and for continuity of operations in the event of emergencies.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-268
+STATUS: Draft
+TITLE: 6. Notes.
+STATEMENT: This section shall contain any general information that aids in understanding this document (e.g., background information, glossary, rationale). This section shall include an alphabetical listing of all acronyms, abbreviations, and their meanings as used in this document and a list of terms and definitions needed to understand this document.
+RATIONALE: Converted from SCOM.html heading.
+
+[REQUIREMENT]
+UID: REQ-269
+STATUS: Draft
+TITLE: A. Appendixes.
+STATEMENT: Appendixes may be used to provide information published separately for convenience in document maintenance (e.g., charts, classified data). As applicable, each appendix shall be referenced in the main body of the document where the data would normally have been provided. Appendixes may be bound as separate documents for ease in handling. Appendixes shall be lettered alphabetically (A, B, etc.).
+RATIONALE: Converted from SCOM.html heading.
+
