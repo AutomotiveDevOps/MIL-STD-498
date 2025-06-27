@@ -1,0 +1,3 @@
+<div class="document">
+<p>This paragraph shall identify the criteria to be used for evaluating the intermediate and final results of the test case. For each test result, the following information shall be provided, as applicable: 1. The range or accuracy over which an output can vary and still be acceptable 2. Minimum number of combinations or alternatives of input and output conditions that constitute an acceptable test result 3. Maximum/minimum allowable test duration, in terms of time or number of events 4. Maximum...</p>
+</div>

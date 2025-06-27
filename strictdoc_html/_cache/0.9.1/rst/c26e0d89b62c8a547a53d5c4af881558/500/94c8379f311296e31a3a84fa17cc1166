@@ -1,0 +1,3 @@
+<div class="document">
+<p>This paragraph shall describe the test inputs necessary for the test case. The following shall be provided, as applicable:Name, purpose, and description (e.g., range of values, accuracy) of each test inputSource of the test input and the method to be used for selecting the test inputWhether the test input is real or simulatedTime or event sequence of test inputThe manner in which the input data will be controlled to:Test the item(s) with a minimum/reasonable number of data types and valuesExe...</p>
+</div>

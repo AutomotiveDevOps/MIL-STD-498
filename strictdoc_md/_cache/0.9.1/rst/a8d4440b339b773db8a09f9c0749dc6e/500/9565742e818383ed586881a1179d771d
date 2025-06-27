@@ -1,0 +1,3 @@
+<div class="document">
+<p>This paragraph shall describe, or reference an appendix that describes, the compilation/build process to be used to create the executable files from the source files and to prepare the executable files to be loaded into firmware or other distribution media. It shall specify the compiler(s)/assembler(s) to be used, including version numbers; other hardware and software needed, including version numbers; any settings, options, or conventions to be used; and procedures for compiling/assembling, ...</p>
+</div>

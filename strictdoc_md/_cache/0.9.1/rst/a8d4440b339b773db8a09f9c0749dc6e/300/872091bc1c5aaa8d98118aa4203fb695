@@ -1,0 +1,3 @@
+<div class="document">
+<p>Based on git commit history: 1. <strong>Initial commit</strong>: Repository creation 2. <strong>HTML files</strong>: Original MILSTD498 templates from kkovacs.eu 3. <strong>Markdown conversion</strong>: HTML files converted to Markdown using Pandoc 4. <strong>README updates</strong>: Documentation improvements 5. <strong>Bootstrap</strong>: Final repository setup</p>
+</div>

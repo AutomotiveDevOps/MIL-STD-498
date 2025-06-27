@@ -1,0 +1,3 @@
+<div class="document">
+<p>This paragraph shall: Identify the components of the system (HWCIs, CSCIs, and manual operations). Each component shall be assigned a projectunique identifier. Note: a database may be treated as a CSCI or as part of a CSCI. Show the static (such as &quot;consists of&quot;) relationship(s) of the components. Multiple relationships may be presented, depending on the selected design methodology. State the purpose of each component and identify the system requirements and systemwide design decisions alloca...</p>
+</div>
