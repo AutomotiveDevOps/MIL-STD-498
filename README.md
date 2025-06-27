@@ -4,7 +4,9 @@ This repository contains a complete collection of MIL-STD-498 (Military Standard
 
 ## 🌐 Live Documentation Site
 
-The documentation is automatically generated and published to GitHub Pages: **[https://automotivedevops.github.io/MIL-STD-498/](https://automotivedevops.github.io/MIL-STD-498/)**
+**📖 [View the complete documentation online](https://automotivedevops.github.io/MIL-STD-498/)**
+
+The documentation is automatically generated and published to GitHub Pages with both original HTML and StrictDoc-generated versions of all MIL-STD-498 documents.
 
 ## 📁 Repository Structure
 
@@ -25,18 +27,12 @@ The documentation is automatically generated and published to GitHub Pages: **[h
 - **`strictdoc_md/`** - StrictDoc (.sdoc) files generated from Markdown sources (22 files)
   - Each Markdown heading becomes a separate `[REQUIREMENT]` block
   - Proper grammar compliance with StrictDoc specification
-  - Generated HTML: `https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/`
+  - **Generated HTML**: [https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/)
 
 - **`strictdoc_html/`** - StrictDoc (.sdoc) files generated from HTML sources (22 files)
   - Each HTML heading becomes a separate `[REQUIREMENT]` block
   - Proper grammar compliance with StrictDoc specification
-  - Generated HTML: `https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/strictdoc_html/`
-
-### Legacy Files
-
-- **`strictdoc_documents/`** - Legacy StrictDoc files (22 files)
-  - Older conversion format (not actively maintained)
-  - Contains `.md.sdoc` files from previous conversion attempts
+  - **Generated HTML**: [https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/strictdoc_html/](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/strictdoc_html/)
 
 ### Output Directories
 
@@ -48,100 +44,100 @@ The documentation is automatically generated and published to GitHub Pages: **[h
 ## 📋 Document Types
 
 ### Requirements Documents
-- **[SRS](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SRS.html.md.html)** - Software Requirements Specification
+- **[SRS](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SRS.html.html)** - Software Requirements Specification
   - Defines software requirements and acceptance criteria
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SRS.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SRS.html)
 
-- **[SSS](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SSS.html.md.html)** - System/Subsystem Specification
+- **[SSS](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SSS.html.html)** - System/Subsystem Specification
   - System-level requirements and specifications
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SSS.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SSS.html)
 
-- **[IRS](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/IRS.html.md.html)** - Interface Requirements Specification
+- **[IRS](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/IRS.html.html)** - Interface Requirements Specification
   - Interface requirements between system components
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/IRS.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/IRS.html)
 
 ### Design Documents
-- **[SDD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SDD.html.md.html)** - Software Design Description
+- **[SDD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SDD.html.html)** - Software Design Description
   - Software architectural and detailed design
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SDD.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SDD.html)
 
-- **[SSDD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SSDD.html.md.html)** - System/Subsystem Design Description
+- **[SSDD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SSDD.html.html)** - System/Subsystem Design Description
   - System-level design descriptions
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SSDD.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SSDD.html)
 
-- **[IDD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/IDD.html.md.html)** - Interface Design Description
+- **[IDD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/IDD.html.html)** - Interface Design Description
   - Interface design specifications
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/IDD.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/IDD.html)
 
-- **[DBDD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/DBDD.html.md.html)** - Database Design Description
+- **[DBDD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/DBDD.html.html)** - Database Design Description
   - Database design and structure
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/DBDD.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/DBDD.html)
 
 ### Planning Documents
-- **[SDP](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SDP.html.md.html)** - Software Development Plan
+- **[SDP](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SDP.html.html)** - Software Development Plan
   - Comprehensive software development planning
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SDP.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SDP.html)
 
-- **[STP](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/STP.html.md.html)** - Software Test Plan
+- **[STP](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/STP.html.html)** - Software Test Plan
   - Software testing strategy and procedures
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/STP.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/STP.html)
 
-- **[SIP](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SIP.html.md.html)** - Software Installation Plan
+- **[SIP](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SIP.html.html)** - Software Installation Plan
   - Software installation procedures
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SIP.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SIP.html)
 
-- **[SCOM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SCOM.html.md.html)** - Software Configuration Management Plan
+- **[SCOM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SCOM.html.html)** - Software Configuration Management Plan
   - Configuration management planning
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SCOM.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SCOM.html)
 
 ### Testing Documents
-- **[STR](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/STR.html.md.html)** - Software Test Report
+- **[STR](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/STR.html.html)** - Software Test Report
   - Test execution results and reports
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/STR.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/STR.html)
 
 ### User Documentation
-- **[COM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/COM.html.md.html)** - Computer Operator Manual
+- **[COM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/COM.html.html)** - Computer Operator Manual
   - Computer system operation manual
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/COM.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/COM.html)
 
-- **[CPM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/CPM.html.md.html)** - Computer Program Manual
+- **[CPM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/CPM.html.html)** - Computer Program Manual
   - Computer program usage manual
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/CPM.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/CPM.html)
 
-- **[SUM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SUM.html.md.html)** - Software User Manual
+- **[SUM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SUM.html.html)** - Software User Manual
   - Software user manual
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SUM.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SUM.html)
 
-- **[SIOM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SIOM.html.md.html)** - Software Input/Output Manual
+- **[SIOM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SIOM.html.html)** - Software Input/Output Manual
   - Input/output procedures manual
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SIOM.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SIOM.html)
 
 ### Transition & Installation
-- **[STRP](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/STRP.html.md.html)** - Software Transition Plan
+- **[STRP](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/STRP.html.html)** - Software Transition Plan
   - Software transition planning
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/STRP.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/STRP.html)
 
-- **[SVD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SVD.html.md.html)** - Software Version Description
+- **[SVD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SVD.html.html)** - Software Version Description
   - Version description and release notes
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SVD.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SVD.html)
 
 ### Support Documentation
-- **[FSM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/FSM.html.md.html)** - Firmware Support Manual
+- **[FSM](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/FSM.html.html)** - Firmware Support Manual
   - Firmware support procedures
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/FSM.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/FSM.html)
 
-- **[OCD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/OCD.html.md.html)** - Operational Concept Description
+- **[OCD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/OCD.html.html)** - Operational Concept Description
   - Operational concept descriptions
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/OCD.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/OCD.html)
 
 ### Additional Documents
-- **[SPS](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/SPS.html.md.html)** - Software Product Specification
+- **[SPS](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/SPS.html.html)** - Software Product Specification
   - Software product specifications
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SPS.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/SPS.html)
 
-- **[STD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_md/html/strictdoc_md/STD.html.md.html)** - Software Transition Document
+- **[STD](https://automotivedevops.github.io/MIL-STD-498/strictdoc_html/html/STD.html.html)** - Software Transition Document
   - Software transition documentation
-  - Original: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/STD.html)
+  - **Original**: [HTML](https://automotivedevops.github.io/MIL-STD-498/original_html/STD.html)
 
 ## 🚀 GitHub Pages Deployment
 
@@ -183,8 +179,8 @@ venv/bin/strictdoc export --formats=html --output-dir=docs/ strictdoc_md/
 ## 📖 Usage
 
 ### Viewing Documentation
-- **Online**: Visit [https://automotivedevops.github.io/MIL-STD-498/](https://automotivedevops.github.io/MIL-STD-498/)
-- **Local**: Open `docs/index.html` in your browser after generation
+- **🌐 Online**: Visit [https://automotivedevops.github.io/MIL-STD-498/](https://automotivedevops.github.io/MIL-STD-498/)
+- **💻 Local**: Open `docs/index.html` in your browser after generation
 
 ### Using StrictDoc Files
 The StrictDoc (.sdoc) files can be used with StrictDoc to generate various output formats:
