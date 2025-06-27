@@ -37,7 +37,7 @@ jobs:
         run: uv venv .venv
 
       - name: Install dependencies
-        run: .venv/bin/uv pip install strictdoc beautifulsoup4 html2text
+        run: uv pip install -p .venv strictdoc beautifulsoup4 html2text
 
       - name: Generate StrictDoc HTML documentation
         run: |
