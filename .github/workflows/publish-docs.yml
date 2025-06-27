@@ -43,9 +43,25 @@ jobs:
         run: |
           .venv/bin/python convert_to_strictdoc_final.py
 
+      - name: Debug - Check StrictDoc files exist
+        run: |
+          echo "=== StrictDoc HTML files ==="
+          ls -la strictdoc_html/*.sdoc | head -10
+          echo "=== StrictDoc MD files ==="
+          ls -la strictdoc_md/*.sdoc | head -10
+
       - name: Generate StrictDoc HTML documentation (HTML sources)
         run: |
           .venv/bin/strictdoc export --formats=html --output-dir=docs/strictdoc_html strictdoc_html
+
+      - name: Debug - List docs directory contents
+        run: |
+          echo "=== Contents of docs directory ==="
+          find docs -type f -name "*.html" | head -20
+          echo "=== Contents of docs/strictdoc_html ==="
+          ls -la docs/strictdoc_html/ || echo "Directory does not exist"
+          echo "=== Contents of docs/strictdoc_html/html ==="
+          ls -la docs/strictdoc_html/html/ || echo "Directory does not exist"
 
       - name: Generate StrictDoc HTML documentation (Markdown sources)
         run: |
