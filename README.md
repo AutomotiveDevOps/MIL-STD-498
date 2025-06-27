@@ -10,17 +10,19 @@ The documentation is automatically generated and published to GitHub Pages with 
 
 ## 📁 Repository Structure
 
-### Source Documents
+### Original Source Documents (from kkovacs.eu)
 
-- **`html/`** - Original MIL-STD-498 HTML templates (22 files)
-  - Source templates from [kkovacs.eu](http://kkovacs.eu/free-project-management-template-mil-std-498)
+- **`original/original_MIL-STD-498_html/`** - Original MIL-STD-498 HTML templates (22 files)
+  - **Source**: [kkovacs.eu](http://kkovacs.eu/free-project-management-template-mil-std-498)
   - Well-structured XHTML 1.0 Transitional format
   - Consistent document structure across all templates
+  - **Direct attribution**: These files are sourced directly from kkovacs.eu
 
-- **`md/`** - Markdown versions of HTML templates (22 files)
+- **`original/original_MIL-STD-498_md/`** - Markdown versions of HTML templates (22 files)
   - Converted from HTML using Pandoc
   - Maintains document structure and hierarchy
   - Some formatting artifacts from HTML conversion
+  - **Source**: Derived from kkovacs.eu HTML templates
 
 ### StrictDoc Generated Files
 
@@ -217,8 +219,10 @@ For questions or issues, please open an issue on GitHub.
 
 ## 📚 Source Attribution
 
-- **Original HTML**: Sourced from [kkovacs.eu](http://kkovacs.eu/free-project-management-template-mil-std-498)
-- **Markdown conversion**: Performed using [Pandoc](http://johnmacfarlane.net/pandoc/)
+- **Original HTML Templates**: Directly sourced from [kkovacs.eu](http://kkovacs.eu/free-project-management-template-mil-std-498)
+  - These are the authoritative MIL-STD-498 document templates
+  - All HTML files in `original/original_MIL-STD-498_html/` come directly from kkovacs.eu
+- **Markdown conversion**: Performed using [Pandoc](http://johnmacfarlane.net/pandoc/) on kkovacs.eu HTML templates
 - **Standard reference**: [MIL-STD-498 on Wikipedia](https://en.wikipedia.org/wiki/MIL-STD-498)
 - **StrictDoc**: [StrictDoc Documentation](https://strictdoc.readthedocs.io/)
 

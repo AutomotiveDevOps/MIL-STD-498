@@ -298,7 +298,7 @@ ELEMENTS:
         self.requirement_counter = 1
         
         # Convert HTML files
-        html_dir = Path("html")
+        html_dir = Path("original/original_MIL-STD-498_html")
         strictdoc_html_dir = Path("strictdoc_html")
         strictdoc_html_dir.mkdir(exist_ok=True)
         
@@ -310,7 +310,7 @@ ELEMENTS:
         self.requirement_counter = 1
         
         # Convert Markdown files
-        md_dir = Path("md")
+        md_dir = Path("original/original_MIL-STD-498_md")
         strictdoc_md_dir = Path("strictdoc_md")
         strictdoc_md_dir.mkdir(exist_ok=True)
         
