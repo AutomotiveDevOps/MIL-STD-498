@@ -60,12 +60,19 @@ jobs:
         run: |
           echo "=== Current directory ==="
           pwd
-          .venv/bin/strictdoc export --formats=html --output-dir=./temp_strictdoc_output ./strictdoc_html
+          echo "=== Repository contents ==="
+          ls -la
+          echo "=== StrictDoc HTML directory contents ==="
+          ls -la ./strictdoc_html/
+          echo "=== Running StrictDoc export ==="
+          .venv/bin/strictdoc export --formats=html --output-dir="$PWD/temp_strictdoc_output" "$PWD/strictdoc_html"
 
       - name: Copy StrictDoc HTML files to correct location
         run: |
           echo "=== Current directory ==="
           pwd
+          echo "=== Temp output contents ==="
+          ls -la ./temp_strictdoc_output/ || echo "Temp directory does not exist"
           # Create the directory structure
           mkdir -p ./docs/strictdoc_html/html
           # Copy the HTML files from the generated output
@@ -94,7 +101,10 @@ jobs:
         run: |
           echo "=== Current directory ==="
           pwd
-          .venv/bin/strictdoc export --formats=html --output-dir=./temp_strictdoc_md_output ./strictdoc_md
+          echo "=== StrictDoc MD directory contents ==="
+          ls -la ./strictdoc_md/
+          echo "=== Running StrictDoc export for MD ==="
+          .venv/bin/strictdoc export --formats=html --output-dir="$PWD/temp_strictdoc_md_output" "$PWD/strictdoc_md"
 
       - name: Copy StrictDoc Markdown HTML files to correct location
         run: |
