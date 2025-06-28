@@ -73,7 +73,7 @@ jobs:
           # Copy the config file
           cp ../strictdoc_config.toml .
           # Run StrictDoc from the temp directory
-          ../.venv/bin/strictdoc export --formats=html --output-dir="output" --config="strictdoc_config.toml" SRS.html.sdoc --verbose
+          ../.venv/bin/strictdoc export --formats=html --output-dir="output" --config="strictdoc_config.toml" SRS.html.sdoc
           # Copy the output back to the main directory
           cp -r output/* ../temp_strictdoc_output/
           cd ..
