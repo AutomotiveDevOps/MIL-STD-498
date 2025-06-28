@@ -1,0 +1,7 @@
+[project]
+title = "MIL-STD-498"
+version = "1.0.0"
+
+[export.html]
+export_assets = true
+export_assets_dir = "_static" 

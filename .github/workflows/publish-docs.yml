@@ -64,8 +64,19 @@ jobs:
           ls -la
           echo "=== StrictDoc HTML directory contents ==="
           ls -la ./strictdoc_html/
-          echo "=== Running StrictDoc export ==="
-          .venv/bin/strictdoc export --formats=html --output-dir="$PWD/temp_strictdoc_output" "$PWD/strictdoc_html"
+          echo "=== Testing with single file first ==="
+          # Create a temporary working directory to avoid StrictDoc creating /projects
+          mkdir -p temp_work_dir
+          cd temp_work_dir
+          # Copy the StrictDoc file to the temp directory
+          cp ../strictdoc_html/SRS.html.sdoc .
+          # Copy the config file
+          cp ../strictdoc_config.toml .
+          # Run StrictDoc from the temp directory
+          ../.venv/bin/strictdoc export --formats=html --output-dir="output" --config="strictdoc_config.toml" SRS.html.sdoc --verbose
+          # Copy the output back to the main directory
+          cp -r output/* ../temp_strictdoc_output/
+          cd ..
 
       - name: Copy StrictDoc HTML files to correct location
         run: |
